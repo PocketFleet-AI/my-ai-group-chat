@@ -16,7 +16,7 @@ Built for indie hackers & developers orchestrating multi-model code reviews, arc
 [How It Works](#why-my-ai-group-chat) | [Quick Start](#get-started-in-three-steps) | [Pricing](#licensing-pricing) | [Trust & Privacy](#local-first-trust-disclosures) | [Documentation](docs/Detailed-User-Guide.md) | [Telegram](https://t.me/myaigroupchat)
 </div>
 
-![Your Existing AIs. One Team.](docs/images/product/01_your_existing_ais.png)
+![Your Existing AIs. One Team.](docs/images/product/01_your_existing_ais.jpg)
 
 ---
 ## Why My AI Group Chat?
@@ -32,12 +32,12 @@ Today, making multiple AIs collaborate forces you to manually copy‑paste promp
 > **Example Real‑World Workflow**:
 > Let one agent draft architecture, another implement frontend UI, a third audit edge‑case risks — all running concurrently on your local Windows machine. You get notified on mobile when human input is required.
 
-![Command your AIs via Telegram: keep the PC running, send tasks from mobile, and read replies in Telegram](docs/images/product/02_remote_via_telegram.png)
+![Command your AIs via Telegram: keep the PC running, send tasks from mobile, and read replies in Telegram](docs/images/product/02_remote_via_telegram.jpg)
 
 <details>
 <summary>See the actual desktop control center</summary>
 
-![My AI Group Chat desktop control center with browser and code AI seats](docs/images/product/03_desktop_control_center.png)
+![My AI Group Chat desktop control center with browser and code AI seats](docs/images/product/03_desktop_control_center.jpg)
 
 *Example workspace. Participating AI seat limits depend on your license.*
 
@@ -46,7 +46,7 @@ Today, making multiple AIs collaborate forces you to manually copy‑paste promp
 <details>
 <summary>See your AIs review each other's work</summary>
 
-![Let your AIs review each other: compare perspectives, find risks, and improve results](docs/images/product/04_ai_cross_review.png)
+![Let your AIs review each other: compare perspectives, find risks, and improve results](docs/images/product/04_ai_cross_review.jpg)
 
 </details>
 
@@ -78,7 +78,7 @@ You (Telegram Remote) ◄──► Telegram Bots ◄──► My AI Group Chat (
 <details>
 <summary>See the three-step setup</summary>
 
-![Set up once: Telegram setup, connect your AIs, then launch council](docs/images/product/05_setup_three_steps.png)
+![Set up once: Telegram setup, connect your AIs, then launch council](docs/images/product/05_setup_three_steps.jpg)
 
 </details>
 

@@ -2,7 +2,7 @@
 
 [English](README.md) | **简体中文** | [加入内测交流群](#加入内测交流群)
 
-![连接你日常在用的 AI，组成协作团队](docs/images/product/01_your_existing_ais.png)
+![连接你日常在用的 AI，组成协作团队](docs/images/product/01_your_existing_ais.jpg)
 
 底层引擎：PocketFleet。浏览器扩展采用 Apache-2.0 开源，Windows 桌面编排引擎闭源。
 
@@ -21,12 +21,12 @@
 
 > **典型工作流示例**：一个Agent负责架构设计，另一个编写前端UI，第三个审计边界风险，三者在本地 Windows 上并发推进，手机收到提醒后再介入决策。
 
-![电脑保持运行，通过手机 Telegram 下达任务、接收回复](docs/images/product/02_remote_via_telegram.png)
+![电脑保持运行，通过手机 Telegram 下达任务、接收回复](docs/images/product/02_remote_via_telegram.jpg)
 
 <details>
 <summary>展开查看：真实桌面控制台</summary>
 
-![My AI Group Chat 真实桌面控制台，统一管理网页与代码 AI 席位](docs/images/product/03_desktop_control_center.png)
+![My AI Group Chat 真实桌面控制台，统一管理网页与代码 AI 席位](docs/images/product/03_desktop_control_center.jpg)
 
 *图中为示例工作区，同时参会席位上限以授权档位为准。*
 
@@ -35,7 +35,7 @@
 <details>
 <summary>展开查看：让你的 AI 交叉评审</summary>
 
-![让多个 AI 比较视角、发现风险、完善结果](docs/images/product/04_ai_cross_review.png)
+![让多个 AI 比较视角、发现风险、完善结果](docs/images/product/04_ai_cross_review.jpg)
 
 </details>
 
@@ -54,7 +54,7 @@
 <details>
 <summary>展开查看：三步完成协作配置</summary>
 
-![三步开始：准备 Telegram、连接已有 AI、发起协作](docs/images/product/05_setup_three_steps.png)
+![三步开始：准备 Telegram、连接已有 AI、发起协作](docs/images/product/05_setup_three_steps.jpg)
 
 </details>
 
