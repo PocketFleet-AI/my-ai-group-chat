@@ -6,7 +6,7 @@
 
 **Bring Your Existing AI Subscriptions Together.**
 *Stop paying twice for AI power. Amplify the tools you already subscribe to — no extra per‑token API markup.*
-Early preview used by indie devs doing multi‑model code reviews & refactors.
+Built for indie hackers & developers orchestrating multi-model code reviews, architecture cross-checks, and refactors.
 
 [![Extension License](https://img.shields.io/badge/Extension-Apache_2.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Chrome-orange.svg)](#system-requirements)
@@ -27,7 +27,7 @@ Today, making multiple AIs collaborate forces you to manually copy‑paste promp
 **My AI Group Chat** connects your existing browser and local code‑agent sessions into a coordinated fleet.
 * **BYOS (Bring Your Own Subscriptions)**: Reuse your active browser AI sessions. No additional API bills from us. We do not generate brand‑new blank‑state API‑based AI instances. We work with the models you already know and trust. *(Note: We do not claim full historical‑memory inheritance across sessions).*
 * **AI‑Orchestrates‑AI**: Assign one of your trusted AIs as the meeting host. It can dispatch work, request peer reviews, and aggregate outputs from other connected agents. Host‑agent guidance improves task splitting, but results depend on underlying model quality and prompt design. Complex task decomposition is assisted, but not guaranteed for every arbitrary prompt.
-* **Async Telegram Pager / Remote Console**: Kick off long‑running multi‑agent refactors or reviews from your desktop, then step away. Your Windows machine and logged‑in AI browser tabs must stay powered‑on and available for workflows to keep running. Telegram alerts you only for human‑approval gates and final results. Treat Telegram as your headless remote task pager — not just a group‑chat gimmick. *(Telegram is used purely as your remote notification & command interface; we are not affiliated with Telegram).*
+* ✅ **Async Telegram Pager / Remote Console**: Kick-off long-running multi-agent refactors or reviews from your desktop, then step away. Your Windows machine and logged-in AI browser tabs stay powered-on to run workflows. Telegram acts as your asynchronous mission control—streaming agent milestones, flagging human-approval gates, and delivering final deliverables directly to your phone. Step away from your desk while your local fleet coordinates. *(Telegram is used purely as your remote notification & command interface; we are not affiliated with Telegram).*
 
 > **Example Real‑World Workflow**:
 > Let one agent draft architecture, another implement frontend UI, a third audit edge‑case risks — all running concurrently on your local Windows machine. You get notified on mobile when human input is required.
@@ -77,7 +77,7 @@ All tiers share one **identical Windows binary**. Seat count strictly limits con
 
 *Paid tiers will become available upon official release via Lemon Squeezy (purchase button activates at launch).*
 
-Early preview participants may receive time‑limited **30‑day Solo 4‑seat experience codes**. When expiry hits, configuration data persists; license automatically falls back to the permanent Free 2‑seat limit. *(Experience codes are not pre‑bundled inside installation packages).*
+Early preview participants can claim a **30-day Solo 4-seat key** by contacting the author or joining our early-access community. Simply paste your key into the desktop control center—no credit card required. When expired, your configuration persists and gracefully falls back to the permanent Free 2-seat limit. *(Experience codes are not pre-bundled inside installation packages).*
 
 ---
 
@@ -98,7 +98,7 @@ Early preview participants may receive time‑limited **30‑day Solo 4‑seat e
 *Critical for Indie Hacker & r/LocalLLaMA audiences:*
 
 1. **Zero‑Cloud‑Proxy Architecture**: Orchestration control‑flow runs over local loopback `127.0.0.1:18765`. No PocketFleet‑operated central message proxy intercepts your prompts.
-2. **Open‑Source Extension**: The companion browser extension is fully open‑source under **Apache‑2.0** for complete security auditing. Zero built‑in telemetry; zero data‑phoning‑home.
+2. **Open-Source Extension**: The companion browser extension is fully open-source under **Apache-2.0** for complete security auditing. Zero analytics trackers or tracking telemetry. To keep up with AI website UI changes without breaking your workflow, it fetches signed DOM-locator rules from Cloudflare Workers (connection metadata only, zero conversation payload).
 3. **No Vendor Lock‑In**: Freely mix and match any supported browser AI and local code agent seats.
 4. **Important Factual Boundary**: *Local‑first orchestration ≠ all data never leaves your PC.* Task payloads travel to your selected AI providers and through the Telegram Bot API, subject to those platforms' respective privacy policies. Do not feed highly sensitive material without reviewing third‑party terms.
 
