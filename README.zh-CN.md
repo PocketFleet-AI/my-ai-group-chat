@@ -1,6 +1,6 @@
 # My AI Group Chat
 
-[English](README.md) | **简体中文**
+[English](README.md) | **简体中文** | [加入内测交流群](#加入内测交流群)
 
 ![连接你日常在用的 AI，组成协作团队](docs/images/your-existing-ais.png)
 
@@ -50,6 +50,14 @@
 *购买通道：Lemon Squeezy 入口将在正式发版时激活。*
 
 首批预览用户可通过私信作者或加入早期内测社群领取 **30 天 Solo 4 席体验码**。直接在桌面控制中心激活，无需绑定信用卡。到期后所有本地配置与记录完整保留，自动平滑回落至永久免费 2 席。*(体验码不预置在安装包内)*。
+
+## 加入内测交流群
+
+扫描下方微信二维码，加入 **My AI Group Chat** 交流群，交流使用心得、反馈问题，并咨询首批体验码。
+
+<a href="docs/images/wechat-preview-group-20261101.jpg"><img src="docs/images/wechat-preview-group-20261101.jpg" alt="My AI Group Chat 微信内测交流群二维码" width="320" /></a>
+
+点击图片可查看原图。二维码图示有效期为 **2026 年 11 月 1 日前**；若已失效，请[通过 GitHub Issues 提醒更新](https://github.com/PocketFleet-AI/my-ai-group-chat/issues)。
 
 ---
 ## 💻 系统要求与发布状态
