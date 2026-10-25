@@ -108,6 +108,8 @@ Early preview participants can claim a **30-day Solo 4-seat key** by contacting 
 
 Questions, preview-code requests, or feedback? Connect with us on Telegram: **[@myaigroupchat](https://t.me/myaigroupchat)**.
 
+Prefer email? Reach the author at **[hi.yihua@gmail.com](mailto:hi.yihua@gmail.com)**.
+
 Click the link above on your phone, or scan this QR code:
 
 <a href="https://t.me/myaigroupchat"><img src="docs/images/telegram-myaigroupchat.png" alt="My AI Group Chat Telegram contact QR code: @myaigroupchat" width="280" /></a>

@@ -80,6 +80,8 @@
 
 扫描下方微信二维码，加入 **My AI Group Chat** 交流群，交流使用心得、反馈问题，并咨询首批体验码。
 
+也可以直接邮件联系作者：**[hi.yihua@gmail.com](mailto:hi.yihua@gmail.com)**。
+
 <a href="docs/images/wechat-preview-group-20261101.jpg"><img src="docs/images/wechat-preview-group-20261101.jpg" alt="My AI Group Chat 微信内测交流群二维码" width="320" /></a>
 
 点击图片可查看原图。二维码图示有效期为 **2026 年 11 月 1 日前**；若已失效，请[通过 GitHub Issues 提醒更新](https://github.com/PocketFleet-AI/my-ai-group-chat/issues)。
