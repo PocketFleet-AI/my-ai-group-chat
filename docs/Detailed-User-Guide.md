@@ -69,7 +69,7 @@ Dispatch does not grant extra filesystem, terminal, or account permissions. Revi
 
 ### License and Communication Requirements
 
-Free allows 2 participating AI seats; Solo 4; Team 6; Ultra has no license-imposed seat limit. Saved connections are not the concurrent participation count. Humans do not count toward AI seats.
+Free allows 2 simultaneously enabled AI seats; Solo 4; Team 6; Ultra 12. These limits apply to collaboration and task dispatch, not to the number of saved AI configurations. Humans do not count toward AI seats. Free is permanent; paid licenses are valid for 12 months.
 
 An expired timed license falls back to Free. Keep saved seats and history, then deselect participants above the free limit. Free and commercial entitlements do not require extension heartbeats, but browser AI communication still needs the extension.
 

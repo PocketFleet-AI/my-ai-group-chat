@@ -88,17 +88,17 @@ You (Telegram Remote) ◄──► Telegram Bots ◄──► My AI Group Chat (
 
 ## 💰 Licensing & Pricing
 
-All tiers share one **identical Windows binary**. Seat count strictly limits concurrent meeting participants. Human users do not consume seats.
+All tiers share one **identical Windows binary**. Save as many AI configurations as you need; your tier limits only how many AI seats are enabled for collaboration and task dispatch at the same time. Human users do not consume seats.
 
 *Most competing multi‑agent tools charge $15–$30 per month. Our Solo tier is $19.99 per year.*
 ✅ **Free tier is production‑capable**: run real code review workflows with two agents.
 
-| Tier | Concurrent AI Meeting Seats | Price | Notes |
-| --- | --- | --- | --- |
-| **Free** | **2 Seats** | **$0 Forever** | Fully functional dual‑AI review |
-| **Solo** | **4 Seats** | **$19.99 / Year** | Full‑stack & parallel task splitting |
-| **Team** | **6 Seats** | **$39.99 / Year** | Advanced multi‑agent pipelines |
-| **Ultra** | **Unlimited** | **$79.99 / Year** | High‑density multi‑model clusters |
+| Tier | Simultaneously Enabled AI Seats | Price | Validity | Notes |
+| --- | --- | --- | --- | --- |
+| **Free** | **2 Seats** | **$0** | **Permanent** | Fully functional dual‑AI review |
+| **Solo** | **4 Seats** | **$19.99** | **12 months** | Full‑stack & parallel task splitting |
+| **Team** | **6 Seats** | **$39.99** | **12 months** | Advanced multi‑agent pipelines |
+| **Ultra** | **12 Seats** | **$79.99** | **12 months** | High‑density multi‑model clusters |
 
 *Paid tiers will become available upon official release via Lemon Squeezy (purchase button activates at launch).*
 
