@@ -142,18 +142,12 @@ async function bridgeFetch(path, options = {}, principal = "folded-host-chatgpt-
 }
 
 /* ---------------- PocketFleet V2 试用版官方签名凭据与握手同步 ---------------- */
-const CURRENT_TRIAL_CREDENTIAL = {
-  payload: JSON.stringify({
-    batch_id: "preview-20261024",
-    max_seats: 5,
-    expires_at: "2027-01-31T23:59:59Z",
-    compatible_bridge_versions: ["2.0.0-preview-20261024", "2.0.0-preview-20261025"]
-  }),
-  signature: "H8VKed0eOXscYDWV2cWhPnyym0hMjAPLYH9zXw4BlfN7QNT0BkVrRTByUol6EOuAbOnJKAV5dRKyCdzXDfHjCA=="
-};
+// 正式公开发行版恪守 Free 永久 2 席商业基线，不内置 5 席试用凭证（内测体验机制与公开发行版明确隔离）
+const CURRENT_TRIAL_CREDENTIAL = null;
 
 let lastTrialSync = 0;
 async function syncTrialCredentialWithBridge() {
+  if (!CURRENT_TRIAL_CREDENTIAL) return;
   const now = Date.now();
   if (now - lastTrialSync < 10000) return;
   try {
