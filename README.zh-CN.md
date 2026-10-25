@@ -24,6 +24,15 @@
 ![电脑保持运行，通过手机 Telegram 下达任务、接收回复](docs/images/product/02_remote_via_telegram.png)
 
 <details>
+<summary>展开查看：真实桌面控制台</summary>
+
+![My AI Group Chat 真实桌面控制台，统一管理网页与代码 AI 席位](docs/images/product/03_desktop_control_center.png)
+
+*图中为示例工作区，同时参会席位上限以授权档位为准。*
+
+</details>
+
+<details>
 <summary>展开查看：让你的 AI 交叉评审</summary>
 
 ![让多个 AI 比较视角、发现风险、完善结果](docs/images/product/04_ai_cross_review.png)

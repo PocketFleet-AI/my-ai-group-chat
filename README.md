@@ -35,6 +35,15 @@ Today, making multiple AIs collaborate forces you to manually copy‑paste promp
 ![Command your AIs via Telegram: keep the PC running, send tasks from mobile, and read replies in Telegram](docs/images/product/02_remote_via_telegram.png)
 
 <details>
+<summary>See the actual desktop control center</summary>
+
+![My AI Group Chat desktop control center with browser and code AI seats](docs/images/product/03_desktop_control_center.png)
+
+*Example workspace. Participating AI seat limits depend on your license.*
+
+</details>
+
+<details>
 <summary>See your AIs review each other's work</summary>
 
 ![Let your AIs review each other: compare perspectives, find risks, and improve results](docs/images/product/04_ai_cross_review.png)
