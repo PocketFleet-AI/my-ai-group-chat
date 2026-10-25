@@ -13,7 +13,7 @@ Built for indie hackers & developers orchestrating multi-model code reviews, arc
 [![Open Source Extension](https://img.shields.io/badge/Extension-Open%20Source-green.svg)](browser-extension/)
 *Powered by the PocketFleet orchestration engine*
 
-[How It Works](#why-my-ai-group-chat) | [Quick Start](#get-started-in-three-steps) | [Pricing](#licensing-pricing) | [Trust & Privacy](#local-first-trust-disclosures) | [Documentation](docs/Detailed-User-Guide.md)
+[How It Works](#why-my-ai-group-chat) | [Quick Start](#get-started-in-three-steps) | [Pricing](#licensing-pricing) | [Trust & Privacy](#local-first-trust-disclosures) | [Documentation](docs/Detailed-User-Guide.md) | [Telegram](https://t.me/MYAIGROUPCHAT)
 </div>
 
 ![Your Existing AIs. One Team.](docs/images/your-existing-ais.png)
@@ -78,6 +78,14 @@ All tiers share one **identical Windows binary**. Seat count strictly limits con
 *Paid tiers will become available upon official release via Lemon Squeezy (purchase button activates at launch).*
 
 Early preview participants can claim a **30-day Solo 4-seat key** by contacting the author or joining our early-access community. Simply paste your key into the desktop control center—no credit card required. When expired, your configuration persists and gracefully falls back to the permanent Free 2-seat limit. *(Experience codes are not pre-bundled inside installation packages).*
+
+## Contact & Early Access
+
+Questions, preview-code requests, or feedback? Connect with us on Telegram: **[@MYAIGROUPCHAT](https://t.me/MYAIGROUPCHAT)**.
+
+Click the link above on your phone, or scan this QR code:
+
+<a href="https://t.me/MYAIGROUPCHAT"><img src="docs/images/telegram-myaigroupchat.png" alt="My AI Group Chat Telegram contact QR code: @MYAIGROUPCHAT" width="280" /></a>
 
 ---
 
