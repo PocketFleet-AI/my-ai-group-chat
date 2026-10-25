@@ -13,7 +13,7 @@ Built for indie hackers & developers orchestrating multi-model code reviews, arc
 [![Open Source Extension](https://img.shields.io/badge/Extension-Open%20Source-green.svg)](browser-extension/)
 *Powered by the PocketFleet orchestration engine*
 
-[How It Works](#why-my-ai-group-chat) | [Quick Start](#get-started-in-three-steps) | [Pricing](#licensing-pricing) | [Trust & Privacy](#local-first-trust-disclosures) | [Documentation](docs/Detailed-User-Guide.md) | [Telegram](https://t.me/MYAIGROUPCHAT)
+[How It Works](#why-my-ai-group-chat) | [Quick Start](#get-started-in-three-steps) | [Pricing](#licensing-pricing) | [Trust & Privacy](#local-first-trust-disclosures) | [Documentation](docs/Detailed-User-Guide.md) | [Telegram](https://t.me/myaigroupchat)
 </div>
 
 ![Your Existing AIs. One Team.](docs/images/your-existing-ais.png)
@@ -81,11 +81,11 @@ Early preview participants can claim a **30-day Solo 4-seat key** by contacting 
 
 ## Contact & Early Access
 
-Questions, preview-code requests, or feedback? Connect with us on Telegram: **[@MYAIGROUPCHAT](https://t.me/MYAIGROUPCHAT)**.
+Questions, preview-code requests, or feedback? Connect with us on Telegram: **[@myaigroupchat](https://t.me/myaigroupchat)**.
 
 Click the link above on your phone, or scan this QR code:
 
-<a href="https://t.me/MYAIGROUPCHAT"><img src="docs/images/telegram-myaigroupchat.png" alt="My AI Group Chat Telegram contact QR code: @MYAIGROUPCHAT" width="280" /></a>
+<a href="https://t.me/myaigroupchat"><img src="docs/images/telegram-myaigroupchat.png" alt="My AI Group Chat Telegram contact QR code: @myaigroupchat" width="280" /></a>
 
 ---
 
