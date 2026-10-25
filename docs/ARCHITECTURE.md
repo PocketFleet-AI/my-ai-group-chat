@@ -2,7 +2,7 @@
 
 ## 1. System Architecture
 
-**My AI Group Chat** connects your active browser AI web sessions (ChatGPT, Claude, Gemini, Qwen, DeepSeek, Grok) into a unified, collaborative workflow powered by the local desktop engine.
+**My AI Group Chat** connects browser AI sessions and local IDE/CLI agents into a collaborative workflow powered by the local desktop engine. The desktop app configures connections and seats; the current meeting workflow is conducted in a Telegram group. The diagram below focuses on the browser connection path.
 
 ```text
 +--------------------------------------------------------------------------+
@@ -40,15 +40,16 @@ In accordance with responsible engineering practices and the Chrome Web Store De
   - **Port `18765` (Primary Control Bridge)**: Handles meeting lifecycle, session management, seat scheduling, and `PFBus` letter polling and posting.
   - **Port `18766` (Task Transport Endpoint)**: Dedicated, decoupled transport pipeline used by `background.js` for streaming direct execution tasks without contending with primary control logic.
   - **Port `18767` (Selector Studio Endpoint)**: Local native debugging interface used by `studio_runner.js` for developer-mode DOM locator inspection.
-- Task assignments, cross-AI debate letters, and meeting minutes pass strictly through these local endpoints without traversing external networks.
+- This extension-to-desktop hop is local. It does not make the full meeting local: content also reaches the selected AI providers and the configured Telegram group.
 
 ### B. Direct Web AI Interactions
 - The browser extension operates in the context of your existing web AI accounts (e.g., `chatgpt.com`, `claude.ai`, `gemini.google.com`).
 - When a task is dispatched to an AI model, your browser sends the prompt directly to that AI provider's official web servers, exactly as if you typed and submitted the message by hand.
 
-### C. Optional Telegram Group Collaboration
-- If you optionally configure a Telegram Bot Token and Chat ID in the desktop application, the orchestrator will synchronize session announcements and AI debate letters to your designated Telegram group via official Telegram Bot API endpoints (`api.telegram.org`).
-- This traffic is direct between your local machine and Telegram, fully user-initiated, and completely optional.
+### C. Telegram Group Collaboration
+- The current meeting workflow requires your configured Telegram bots and group. Meeting announcements, task content, and AI replies are sent to that group via the Telegram Bot API (`api.telegram.org`).
+- This traffic is direct between your local machine and Telegram. Telegram is an external service; meeting content is not confined to your device.
+- IDE and CLI agents also communicate using their own provider and tool configuration. The browser bridge diagram does not represent those additional connections.
 
 ### D. Zero Cloud Relays for Prompts or Chat Data
 - We do not run any central backend server that proxies, logs, or stores your prompts, outputs, or session archives.
