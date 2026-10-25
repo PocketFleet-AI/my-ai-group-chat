@@ -1,0 +1,370 @@
+/* PocketFleet Web Bridge — 网页内浮层面板（content script 注入）
+   v3 蓝调玻璃对齐（2026-10-13 游隼执行 · 指挥官拍板「方案 A」）：
+   与 popup.css / launch.html 同一套设计语言，替换此前的「绿+衬线」独立语言。
+   token 逐项取自 popup.css：蓝 #1f5fd4 / 玻璃层 rgba(255,255,255,.x) /
+   系统黑体 / 语义色（绿=在线、琥珀=警告、肉=离线/危险、蓝=信息/可恢复）。
+   契约不可动：PANEL_ID / .bridge-* 类名 / data-action / data-connection /
+   data-activity / data-control(-label) / data-retry / data-state / data-collapsed。
+   定位（2026-10-14）：top:50% + translateY(-50%) 垂直居中，收起态同步；
+   入场动画关键帧须带 -50%（fill-mode:both 覆盖陷阱）。 */
+
+#folded-host-bridge-panel {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  /* 垂直居中（2026-10-14 指挥官令）：避开各插件默认聚集的顶部区域 */
+  transform: translateY(-50%);
+  z-index: 2147483647;
+  /* 总体 竖状窗口（2026-10-15 指挥官令）：高 430px，宽 340px，立式停靠不遮挡分屏对话视线 */
+  width: min(340px, calc(100vw - 32px));
+  min-height: 430px;
+  max-height: calc(100vh - 40px);
+  box-sizing: border-box;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  /* 玻璃层：对齐 popup .card.hero，透明度提高以适配任意网页底色 */
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(226, 238, 253, 0.88));
+  color: #12213c;
+  box-shadow: 0 4px 16px rgba(40, 80, 150, 0.08), 0 16px 44px rgba(30, 70, 140, 0.2);
+  font: 12px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  animation: bridge-panel-in 0.35s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+@keyframes bridge-panel-in {
+  /* to 必须停在 translateY(-50%)：fill-mode:both 会用末关键帧覆盖静态
+     transform，写 none 会让面板动画结束后跳回 top:50% 未居中位 */
+  from { opacity: 0; transform: translate(14px, calc(-50% + 14px)); }
+  to { opacity: 1; transform: translateY(-50%); }
+}
+
+/* ---------- 顶栏：徽标 + 标题/版本 + 收起 ---------- */
+#folded-host-bridge-panel .bridge-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+/* 徽标：真实品牌 logo（chrome-extension:// 资源，src 由 panel() 运行时注入，
+   manifest 已声明 web_accessible_resources）。原图为圆形徽章 —— 不加圆角/底色/
+   阴影，原样呈现（与弹窗/接力页同一规则）。 */
+#folded-host-bridge-panel .bridge-mark {
+  position: relative;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+}
+#folded-host-bridge-panel .bridge-mark .bridge-logo {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+/* 徽标状态灯：默认石板灰，随连接态变色（与 .bridge-status-dot 同规则） */
+#folded-host-bridge-panel .bridge-light {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #9fb0cc;
+}
+#folded-host-bridge-panel .bridge-titles {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+#folded-host-bridge-panel .bridge-titles strong {
+  display: block;
+  color: #0f1c33;
+  font: 800 12.5px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 版本号做成蓝 pill：对齐 popup .pill（信息类=冷色） */
+#folded-host-bridge-panel .bridge-kicker {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  color: #6d7ea6;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#folded-host-bridge-panel .bridge-version {
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #eaf2fe;
+  color: #1f5fd4;
+  font: 700 9px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.02em;
+}
+/* 收起钮：对齐 popup .lang（白→蓝 tint 渐变玻璃钮） */
+#folded-host-bridge-panel .bridge-collapse-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: 1px solid rgba(31, 95, 212, 0.22);
+  border-radius: 8px;
+  padding: 3px 8px;
+  background: linear-gradient(150deg, #fff, #eaf2fe);
+  box-shadow: 0 1px 4px rgba(40, 80, 150, 0.1);
+  color: #1b3a6b;
+  font: 600 10.5px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+#folded-host-bridge-panel .bridge-collapse-toggle:hover {
+  background: #fff;
+  border-color: rgba(31, 95, 212, 0.35);
+}
+
+/* ---------- 连接状态行：按状态整体着色（对齐 popup .status-line 语义色） ---------- */
+#folded-host-bridge-panel .bridge-connection {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 11px 0 9px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #33456b;
+  font-size: 11.5px;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+#folded-host-bridge-panel .bridge-connection > span:last-child {
+  min-width: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+#folded-host-bridge-panel .bridge-status-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #9fb0cc;
+  box-shadow: 0 0 0 3px rgba(159, 176, 204, 0.2);
+}
+/* 在线=绿（对齐 popup --ok） */
+#folded-host-bridge-panel[data-state="connected"] .bridge-light,
+#folded-host-bridge-panel[data-state="connected"] .bridge-status-dot {
+  background: #1f9d5c;
+  box-shadow: 0 0 0 3px rgba(31, 157, 92, 0.16);
+}
+#folded-host-bridge-panel[data-state="connected"] .bridge-connection {
+  background: rgba(227, 247, 237, 0.8);
+  border-color: rgba(31, 157, 92, 0.25);
+  color: #136843;
+}
+/* 警告/暂停=琥珀（对齐 popup --amber；接力页 status-dot 同值 #e0a12c） */
+#folded-host-bridge-panel[data-state="warning"] .bridge-light,
+#folded-host-bridge-panel[data-state="warning"] .bridge-status-dot {
+  background: #e0a12c;
+  box-shadow: 0 0 0 3px rgba(224, 161, 44, 0.18);
+}
+#folded-host-bridge-panel[data-state="warning"] .bridge-connection {
+  background: rgba(255, 245, 220, 0.85);
+  border-color: #f0d79a;
+  color: #5c4a12;
+}
+/* 离线=肉红（对齐 popup --rose） */
+#folded-host-bridge-panel[data-state="disconnected"] .bridge-light,
+#folded-host-bridge-panel[data-state="disconnected"] .bridge-status-dot {
+  background: #8c2f1c;
+  box-shadow: 0 0 0 3px rgba(140, 47, 28, 0.14);
+}
+#folded-host-bridge-panel[data-state="disconnected"] .bridge-connection {
+  background: rgba(253, 234, 229, 0.85);
+  border-color: #f4c9bd;
+  color: #8c2f1c;
+}
+#folded-host-bridge-panel[data-state="checking"] .bridge-status-dot {
+  animation: folded-host-pulse 1.2s ease-in-out infinite;
+}
+@keyframes folded-host-pulse {
+  50% { opacity: 0.35; }
+}
+
+/* ---------- 最近动作卡：左蓝 accents + 闪电标签（大信息框） ---------- */
+#folded-host-bridge-panel .bridge-activity {
+  flex: 1 1 auto;
+  min-height: 180px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 10px 12px;
+  border-left: 3.5px solid #3b7ff0;
+  border-radius: 0 10px 10px 0;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1px 6px rgba(40, 80, 150, 0.07);
+}
+#folded-host-bridge-panel .bridge-activity-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+  color: #6d7ea6;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+#folded-host-bridge-panel .bridge-activity-label svg {
+  color: #1f5fd4;
+}
+#folded-host-bridge-panel .bridge-activity p {
+  margin: 0;
+  color: #12213c;
+  font-size: 12.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* ---------- 动作区：主按钮单列全宽 + 次级双列 + 低频说明 ---------- */
+#folded-host-bridge-panel .bridge-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+#folded-host-bridge-panel .bridge-actions-row {
+  display: flex;
+  gap: 6px;
+}
+#folded-host-bridge-panel .bridge-actions-row > button {
+  flex: 1 1 0;
+  min-width: 0;
+}
+/* 次级/常规按钮：对齐 popup .btn（白→tint 渐变、蓝字、8px 圆角） */
+#folded-host-bridge-panel button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(31, 95, 212, 0.3);
+  border-radius: 8px;
+  background: linear-gradient(150deg, #fff, #eaf2fe);
+  color: #1f5fd4;
+  cursor: pointer;
+  font: 600 11px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+#folded-host-bridge-panel button svg {
+  flex: 0 0 auto;
+}
+#folded-host-bridge-panel button:hover {
+  background: #dde9fc;
+}
+#folded-host-bridge-panel button:focus-visible {
+  outline: 2px solid #3b7ff0;
+  outline-offset: 1px;
+}
+#folded-host-bridge-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+#folded-host-bridge-panel button:disabled:hover {
+  background: linear-gradient(150deg, #fff, #eaf2fe);
+}
+
+/* 主按钮（熔断）：与弹窗执行总开关同一语义——
+   暂停=肉红危险（popup .btn.danger）；恢复=蓝（popup .btn.danger.resume）。 */
+#folded-host-bridge-panel button.bridge-primary {
+  height: 34px;
+  border-color: transparent;
+  background: linear-gradient(115deg, #ad4c35, #b55032);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(166, 77, 51, 0.28);
+}
+#folded-host-bridge-panel button.bridge-primary:hover {
+  filter: brightness(1.05);
+}
+/* 四钮 2×2 全等宽（2026-10-14 指挥官拍板）：主按钮不再弹性放大、说明钮不再按内容收缩，
+   各行两个按钮均分（.bridge-actions-row > button 的 flex:1 1 0 直接生效）。 */
+#folded-host-bridge-panel button.bridge-primary[data-mode="resume"] {
+  background: linear-gradient(150deg, #3b7ff0, #1f5fd4);
+  box-shadow: 0 3px 12px rgba(31, 95, 212, 0.3);
+}
+#folded-host-bridge-panel button.bridge-primary:disabled {
+  background: linear-gradient(150deg, #e3e9f2, #d6dfec);
+  color: #8a99b3;
+  box-shadow: none;
+}
+#folded-host-bridge-panel button.bridge-primary .ico-play { display: none; }
+#folded-host-bridge-panel button.bridge-primary[data-mode="resume"] .ico-play { display: block; }
+#folded-host-bridge-panel button.bridge-primary[data-mode="resume"] .ico-pause { display: none; }
+
+/* ---------- 收起态：右侧竖条 ---------- */
+#folded-host-bridge-panel[data-collapsed="true"] {
+  right: 0 !important;
+  transform: translateY(-50%) !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 12px 6px !important;
+  border-radius: 12px 0 0 12px !important;
+  border-right: none !important;
+  cursor: pointer;
+  box-shadow: -3px 6px 20px rgba(30, 70, 140, 0.18) !important;
+  animation: none !important;
+}
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-heading,
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-connection,
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-activity,
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-actions {
+  display: none !important;
+}
+#folded-host-bridge-panel .bridge-collapsed-bar {
+  display: none;
+}
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-collapsed-bar {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-collapsed-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 11px;
+  font-weight: 700;
+  color: #12213c;
+  letter-spacing: 2px;
+}
+#folded-host-bridge-panel[data-collapsed="true"] .bridge-expand-icon {
+  font-size: 10px;
+  color: #1f5fd4;
+}
+
+@media (max-width: 720px) {
+  #folded-host-bridge-panel {
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #folded-host-bridge-panel { animation: none !important; }
+  #folded-host-bridge-panel *,
+  #folded-host-bridge-panel *::before,
+  #folded-host-bridge-panel *::after { transition: none !important; }
+}

@@ -1,0 +1,9 @@
+My AI Group Chat (by PocketFleet)
+Copyright 2026 PocketFleet-AI.
+
+This product includes software developed at PocketFleet-AI (https://github.com/PocketFleet-AI).
+
+TRADEMARK AND PROPRIETARY SOFTWARE NOTICE:
+1. Trademarks: The names "PocketFleet", "My AI Group Chat", logos, and associated product branding are proprietary trademarks of PocketFleet-AI and are NOT licensed under the Apache License 2.0. You may not use these trademarks for commercial or redistributive purposes without prior written authorization.
+2. Proprietary Desktop Engine: The desktop orchestration runtime (PocketFleet.exe), meeting state machine, multi-seat dispatch protocols, and commercial license validation are proprietary commercial assets and are NOT covered by the open-source Apache 2.0 license.
+3. Open-Source Scope: The Apache 2.0 license exclusively applies to the browser extension bridge source code and public interface specifications provided in this repository.

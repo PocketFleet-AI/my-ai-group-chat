@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PocketFleet Web Bridge</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="pf">
+      <!-- 顶栏：logo + 品牌名 + 版本 + 状态点 + 语言 -->
+      <header class="top">
+        <!-- 品牌 logo：使用结算主机提供的 24px 原图（icons/logo-24.png），不做任何再加工。
+             离线态的「转灰」由 CSS filter 实现，不改动图片本身。 -->
+        <span class="logo" id="brandLogo" aria-hidden="true">
+          <img src="icons/logo-24.png" alt="" width="24" height="24" />
+        </span>
+        <span class="brand">
+          <b class="bname" data-i18n="bridgeTitle">PocketFleet Web Bridge</b>
+          <i class="bver" id="extensionVersion"></i>
+        </span>
+        <span id="statusBadge" class="dot-only" data-state="checking" title="Checking">
+          <i class="dot"></i>
+          <span id="statusBadgeText" class="sr-only" data-i18n="stateChecking">Checking</span>
+        </span>
+        <div class="lang-wrap">
+          <button id="langToggle" class="lang" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu">
+            <svg class="globe" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20"></path></svg>
+            <span id="langFlag" class="flag" aria-hidden="true"></span>
+            <span id="langCurrent">English</span>
+            <svg class="chev" viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div id="langMenu" class="langmenu" role="menu" hidden></div>
+        </div>
+      </header>
+
+      <!-- 状态卡：状态 + 桥主体名 + 「下一步」提示语（合并为一处）
+           合并理由（指挥官 2026-10-12）：展开下方折叠区后，按钮被顶出视口，
+           若提示留在下方折叠区之后，用户点击后看不到任何反馈，会以为按钮失效。 -->
+      <section class="card hero" id="stateCard">
+        <span class="staterow">
+          <i class="dot" id="heroDot"></i>
+          <b id="heroState" data-i18n="stateChecking">Checking</b>
+          <span class="who" id="heroSubject"></span>
+        </span>
+        <p id="nextNoteBody" class="next-body">Detecting the local bridge</p>
+      </section>
+
+      <!-- 离线说明（肉色）：解释为什么按钮不可用 -->
+      <section class="note-rose sr-only" id="offlineNote" hidden>
+        <strong data-i18n="offlineTitle">Next: start PocketFleet first</strong>
+        <span data-i18n="offlineNote">A browser cannot start a desktop app by itself. Please open PocketFleet first.</span>
+        <div style="margin-top: 6px; font-size: 11px;">
+          <a href="https://pocketfleet.data-records.net" target="_blank" style="color: #8c2f1c; font-weight: 700; text-decoration: underline;">👉 前往 pocketfleet.data-records.net 下载桌面端</a>
+        </div>
+      </section>
+
+      <!-- 主按钮 -->
+      <div class="next-row">
+        <button id="primaryAction" class="cta" type="button" data-i18n="openClient">Open PocketFleet App</button>
+      </div>
+
+      <!-- 状态输出行（紧贴主按钮下方，直观展示连接测试结果/报错） -->
+      <output id="status" class="status-line" data-i18n="neverTested">Not tested</output>
+
+      <!-- 元信息：规则版本 + 端点 -->
+      <section class="meta">
+        <p class="sr-only" id="aboutRuleVersionDetail" data-i18n="rulesDetecting">Detecting local version…</p>
+        <div class="mrow">
+          <b data-i18n="rulesTitleShort">Page rules</b>
+          <i class="pill" id="metaRuleSource" data-i18n="ruleSourceBuiltin">builtin</i>
+          <span class="val" id="aboutRuleVersion">—</span>
+        </div>
+        <div class="mrow">
+          <b data-i18n="endpointLabel">Local Endpoint</b>
+          <span class="val" id="aboutEndpoint">—</span>
+        </div>
+      </section>
+
+      <!-- 连接设置（单行精简，显示端口号，右侧放 Test 按钮，下挂配对输入框） -->
+      <section class="card conn-bar tint-amber">
+        <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+          <div class="conn-info">
+            <span class="f-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M10 13.8a3.9 3.9 0 0 0 5.9.4l2.6-2.6a3.9 3.9 0 0 0-5.6-5.6l-1.5 1.5"></path><path d="M14 10.2a3.9 3.9 0 0 0-5.9-.4L5.5 12.4a3.9 3.9 0 0 0 5.6 5.6l1.5-1.5"></path></svg>
+            </span>
+            <b data-i18n="connSettings">Connection Settings</b>
+            <span class="port-tag">Port: 18765</span>
+          </div>
+          <button id="test" class="btn sm" type="button" data-i18n="test">Test</button>
+        </div>
+        <input id="endpoint" type="hidden" value="http://127.0.0.1:18765" />
+        <div class="pairing-row" style="margin-top:6px; display:flex; gap:4px; width:100%;">
+          <input id="token" type="password" placeholder="Paste Pairing Token" style="flex:1; font-size:11px; padding:3px 6px; border:1px solid #d97706; border-radius:4px;" />
+          <button id="saveTokenBtn" class="btn sm" type="button" style="white-space:nowrap; padding:2px 8px;">Save</button>
+        </div>
+      </section>
+
+      <!-- 协同规范（折叠，低频） -->
+      <details class="fold tint-slate">
+        <summary data-i18n="protocolTitle">Messaging convention</summary>
+        <div class="inbody">
+          <p class="fold-copy" data-i18n="protocolHint">Outgoing messages start with [PFBus]re:{someone}.</p>
+          <button id="startCollaborationProtocol" class="btn sm full" type="button" data-i18n="protocolLoad">Load Convention Guide</button>
+        </div>
+      </details>
+
+      <!-- Version and update controls stay visible. -->
+      <section class="fold tint-blue about-updates" id="aboutUpdates" aria-labelledby="aboutHeading">
+        <h2 id="aboutHeading" data-i18n="aboutTitle">About &amp; Updates</h2>
+        <div class="inbody">
+          <!-- 版本与更新：两组同构的横向条目，每组 4 列（名称 / 当前 / 最新 / 更新）。
+               两行共享同一个 .update-rows grid（靠 display:contents 把子元素提升为
+               父级 grid item），否则各行独立成 grid 时第一列宽度按自身内容计算，
+               英文下 Extension / Rules 长度不同必然左右错位。
+               核心 ID 全部保留，popup.js 无需改动。 -->
+          <div class="update-rows">
+            <div class="update-row">
+              <span class="update-name" data-i18n="pluginVersionName">插件版本</span>
+              <b class="update-cur" id="aboutExtVersion">—</b>
+              <span class="update-latest" id="latestExtVersion">—</span>
+            </div>
+            <div class="update-row">
+              <span class="update-name" data-i18n="ruleVersionName">规则版本</span>
+              <b class="update-cur" id="currentRuleVersion">—</b>
+              <span class="update-latest" id="latestRuleVersion">—</span>
+              <button id="checkRuleUpdate" class="btn sm update-btn" type="button">
+                <svg class="btn-ico" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true"><path d="M11 3h2v8.6l2.9-2.9 1.4 1.4-5.3 5.3-5.3-5.3 1.4-1.4L11 11.6z"></path><rect x="4" y="18.2" width="16" height="2.2" rx="1.1"></rect></svg>
+                <span data-i18n="update">更新</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 执行总开关：独立卡，因为这是唯一有「后果」的开关 -->
+      <section class="card sw" id="execCard">
+        <div class="sw-txt">
+          <b data-i18n="killSwitch">Allow bridge execution</b>
+          <small id="killSwitchHint" data-i18n="killSwitchIdle">When off, web AI can read but cannot send or receive meeting messages.</small>
+        </div>
+        <button id="executionControl" class="btn danger sm" type="button" disabled>
+          <svg id="executionControlIco" class="btn-ico" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true"><circle cx="5.4" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="18.6" cy="12" r="1.7"></circle></svg>
+          <span id="executionControlLabel" data-i18n="pausing">Checking…</span>
+        </button>
+      </section>
+      <!-- 脚本依赖但已并入上方状态卡的节点，保留以免popup.js 引用断裂 -->
+      <p id="statusHint" class="sr-only" data-i18n="stateCheckingHint">Detecting the local bridge</p>
+      <strong id="nextTitle" class="sr-only" data-i18n="nextTitle">Next: nothing to do</strong>
+      <section id="nextNote" class="sr-only"></section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

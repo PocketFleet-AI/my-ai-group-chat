@@ -1,0 +1,317 @@
+{
+  "aboutHint": {
+    "message": "拡張機能の更新はブラウザーが処理します。ページルールは別途ダウンロードされます。"
+  },
+  "aboutTitle": {
+    "message": "情報と更新"
+  },
+  "actionsHint": {
+    "message": "接続設定を保存するか、ローカルブリッジに接続できるか確認します。"
+  },
+  "actionsTitle": {
+    "message": "操作"
+  },
+  "adapterNotReady": {
+    "message": "ページアダプタが未準備です。チャットタブを更新して再試行してください。"
+  },
+  "advanced": {
+    "message": "詳細設定"
+  },
+  "appName": {
+    "message": "PocketFleet"
+  },
+  "bridgeDisconnected": {
+    "message": "PocketFleet が閉じられました。ブリッジに接続できません"
+  },
+  "bridgeOnline": {
+    "message": "ローカルブリッジはオンラインです"
+  },
+  "bridgeOnlineShort": {
+    "message": "接続は正常です"
+  },
+  "bridgePaused": {
+    "message": "ローカルブリッジ接続済み（現在サーキットブレーカーにより停止中）"
+  },
+  "bridgeTitle": {
+    "message": "PocketFleet Web Bridge"
+  },
+  "checkAndUpdateRules": {
+    "message": "ルールを確認・更新"
+  },
+  "checkExtUpdate": {
+    "message": "拡張機能を更新"
+  },
+  "checkRuleUpdate": {
+    "message": "ページルールを確認"
+  },
+  "clientRestored": {
+    "message": "PocketFleet ウィンドウの表示を要求しました"
+  },
+  "connSettings": {
+    "message": "接続設定"
+  },
+  "connSettingsHint": {
+    "message": "ローカルエンドポイント、認証トークン、接続テスト。"
+  },
+  "connectFailed": {
+    "message": "接続に失敗しました"
+  },
+  "currentPluginVersion": {
+    "message": "現在の拡張機能"
+  },
+  "currentRuleVersion": {
+    "message": "現在のルール"
+  },
+  "detectFailed": {
+    "message": "状態の確認に失敗しました"
+  },
+  "endpointLabel": {
+    "message": "ローカルエンドポイント"
+  },
+  "endpointLocked": {
+    "message": "ローカルブリッジのエンドポイントは http://127.0.0.1:18765 に固定されています"
+  },
+  "execPaused": {
+    "message": "実行を一時停止しました。送信キューは凍結されました"
+  },
+  "execResumed": {
+    "message": "実行を再開しました。送信は正常に流れています"
+  },
+  "extUpToDate": {
+    "message": "最新のバージョンです"
+  },
+  "extUpdateAvailable": {
+    "message": "新しいバージョンがあります。Chrome が自動的にインストールします。"
+  },
+  "extUpdateFailed": {
+    "message": "拡張機能の更新確認に失敗しました"
+  },
+  "extUpdateThrottled": {
+    "message": "ブラウザーが更新確認の頻度を制限しています。后で再試行してください。"
+  },
+  "extVersionLabel": {
+    "message": "拡張機能"
+  },
+  "hideToken": {
+    "message": "トークンを非表示"
+  },
+  "injectFailed": {
+    "message": "プロトコル注入に失敗しました。"
+  },
+  "injectFailedPrefix": {
+    "message": "注入に失敗"
+  },
+  "killSwitch": {
+    "message": "実行マスタースイッチ"
+  },
+  "killSwitchIdle": {
+    "message": "ローカルブリッジの呼び出しと送信を制御します"
+  },
+  "killSwitchOffline": {
+    "message": "接続後に利用できます"
+  },
+  "killSwitchPaused": {
+    "message": "現在一時停止中、送信はすべてブロックされています"
+  },
+  "langMore": {
+    "message": "その他…"
+  },
+  "latestVersion": {
+    "message": "最新バージョン"
+  },
+  "launchingClient": {
+    "message": "PocketFleet デスクトップを起動中..."
+  },
+  "needToken": {
+    "message": "先に PocketFleet 通信トークンを入力してください"
+  },
+  "neverTested": {
+    "message": "未テスト"
+  },
+  "nextStep": {
+    "message": "次のステップ"
+  },
+  "nextTitle": {
+    "message": "次：现阶段无需操作"
+  },
+  "nextTitleChecking": {
+    "message": "次：ブリッジを確認中"
+  },
+  "nextTitleOffline": {
+    "message": "次：先に PocketFleet を開いてください"
+  },
+  "nextTitlePaused": {
+    "message": "次：先に実行を再開してください"
+  },
+  "nextTitleReady": {
+    "message": "次：现阶段无需操作"
+  },
+  "noTab": {
+    "message": "ブラウザータブが見つかりません。"
+  },
+  "offlineNote": {
+    "message": "ブラウザはデスクトップアプリを自動起動できません。先に PocketFleet を開いてから、上のボタンを押してください。"
+  },
+  "offlineTitle": {
+    "message": "次：先に PocketFleet を開いてください"
+  },
+  "openClient": {
+    "message": "PocketFleet ウィンドウを開く"
+  },
+  "pause": {
+    "message": "一時停止"
+  },
+  "pausing": {
+    "message": "確認中…"
+  },
+  "pluginVersionName": {
+    "message": "拡張機能"
+  },
+  "protocolHint": {
+    "message": "送信メッセージは [PFBus][re:{someone}] または [PFBus][mailto:{someone}] で始めてください。受信者は必ず1人だけ指定してください。"
+  },
+  "protocolInjected": {
+    "message": "連携プロトコルを入力欄に記載しました。Enter で現在の AI に送信できます。"
+  },
+  "protocolLoad": {
+    "message": "プロトコルを読み込む"
+  },
+  "protocolTitle": {
+    "message": "PocketFleet マルチAIメッセージ規約"
+  },
+  "restoreFailed": {
+    "message": "ウィンドウ表示の要求に失敗しました"
+  },
+  "restoreUnsupported": {
+    "message": "このクライアントには表示要求の API がありません。PocketFleet ウィンドウに手動で切り替えてください"
+  },
+  "resume": {
+    "message": "再開"
+  },
+  "retry": {
+    "message": "接続を再試行"
+  },
+  "ruleSourceBuiltin": {
+    "message": "内蔵"
+  },
+  "ruleSourceCloud": {
+    "message": "現在"
+  },
+  "ruleVersionName": {
+    "message": "ルール"
+  },
+  "rulesAppliedOnIdle": {
+    "message": "ルールを保存しました。アイドル状態のページに適用されます。実行中のタスクは現在の設定のままです。"
+  },
+  "rulesCardHint": {
+    "message": "ページマッチングルールを確認・更新し、クラウド設定と同期させます。"
+  },
+  "rulesCurrentPage": {
+    "message": "現在のページ"
+  },
+  "rulesDetecting": {
+    "message": "ローカルバージョンを確認中…"
+  },
+  "rulesNeedNewerExtension": {
+    "message": "このルールには新しい拡張機能が必要です。まず「拡張機能を更新」を実行してください。既存の設定は保持されます："
+  },
+  "rulesPending": {
+    "message": "（待機中は保留）"
+  },
+  "rulesReadFailed": {
+    "message": "バージョンの読み取りに失敗："
+  },
+  "rulesSourceCloud": {
+    "message": "クラウド設定"
+  },
+  "rulesSourceLocal": {
+    "message": "内蔵"
+  },
+  "rulesTitle": {
+    "message": "ページルール設定"
+  },
+  "rulesTitleShort": {
+    "message": "ページルール"
+  },
+  "rulesUpToDate": {
+    "message": "ページルールはすでに最新です。"
+  },
+  "rulesUpdateFailed": {
+    "message": "更新に失敗しました。既存の設定を維持します："
+  },
+  "rulesVersionLabel": {
+    "message": "ルール"
+  },
+  "save": {
+    "message": "設定を保存"
+  },
+  "saved": {
+    "message": "設定を保存しました"
+  },
+  "showToken": {
+    "message": "トークンを表示"
+  },
+  "staleScript": {
+    "message": "このチャットページは旧版の送信スクリプトを実行中です。タブを更新して再試行してください。"
+  },
+  "stateChecking": {
+    "message": "確認中"
+  },
+  "stateCheckingHint": {
+    "message": "ローカルブリッジを検出しています"
+  },
+  "stateConnected": {
+    "message": "接続済み"
+  },
+  "stateConnectedHint": {
+    "message": "ローカルブリッジ接続済み — 会議は PocketFleet で開始してください"
+  },
+  "stateNoToken": {
+    "message": "先に通信トークンを入力してください"
+  },
+  "stateOffline": {
+    "message": "未接続"
+  },
+  "stateOfflineHint": {
+    "message": "先に PocketFleet アプリを起動してください"
+  },
+  "statePaused": {
+    "message": "一時停止中"
+  },
+  "statePausedHint": {
+    "message": "一時停止中：Web AI は会議メッセージを送受信しません"
+  },
+  "test": {
+    "message": "接続をテスト"
+  },
+  "toggleFailed": {
+    "message": "切り替えに失敗しました"
+  },
+  "toggleToken": {
+    "message": "トークンの表示/非表示"
+  },
+  "tokenLabel": {
+    "message": "通信トークン"
+  },
+  "unsupportedPage": {
+    "message": "このページは対応する AI チャットセッションではありません。"
+  },
+  "update": {
+    "message": "更新"
+  },
+  "updateCheckFailed": {
+    "message": "確認に失敗"
+  },
+  "updateNoNewVersion": {
+    "message": "ブラウザから更新の提供なし"
+  },
+  "updateNotChecked": {
+    "message": "未確認"
+  },
+  "updateUnavailable": {
+    "message": "このビルドは拡張機能の更新を確認できません（ローカルテスト版）。"
+  },
+  "updateUnknown": {
+    "message": "確認できません"
+  }
+}

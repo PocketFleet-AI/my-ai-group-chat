@@ -1,0 +1,317 @@
+{
+  "aboutHint": {
+    "message": "Extension program updates are handled by the browser; page rules are downloaded separately."
+  },
+  "aboutTitle": {
+    "message": "About & updates"
+  },
+  "actionsHint": {
+    "message": "Save the connection settings or test whether the local bridge can be reached."
+  },
+  "actionsTitle": {
+    "message": "Actions"
+  },
+  "adapterNotReady": {
+    "message": "Page adapter not ready. Refresh the current chat tab and retry."
+  },
+  "advanced": {
+    "message": "Advanced settings"
+  },
+  "appName": {
+    "message": "PocketFleet"
+  },
+  "bridgeDisconnected": {
+    "message": "PocketFleet closed — the bridge is no longer reachable"
+  },
+  "bridgeOnline": {
+    "message": "Local bridge online"
+  },
+  "bridgeOnlineShort": {
+    "message": "Connection normal"
+  },
+  "bridgePaused": {
+    "message": "Local bridge connected (circuit breaker paused)"
+  },
+  "bridgeTitle": {
+    "message": "PocketFleet Web Bridge"
+  },
+  "checkAndUpdateRules": {
+    "message": "Check and update rules"
+  },
+  "checkExtUpdate": {
+    "message": "Check extension update"
+  },
+  "checkRuleUpdate": {
+    "message": "Check page rules"
+  },
+  "clientRestored": {
+    "message": "PocketFleet window restore requested"
+  },
+  "connSettings": {
+    "message": "Connection Settings"
+  },
+  "connSettingsHint": {
+    "message": "Local endpoint, authentication token and connection test."
+  },
+  "connectFailed": {
+    "message": "Connection failed"
+  },
+  "currentPluginVersion": {
+    "message": "Current extension"
+  },
+  "currentRuleVersion": {
+    "message": "Current rules"
+  },
+  "detectFailed": {
+    "message": "Status detection failed"
+  },
+  "endpointLabel": {
+    "message": "Local endpoint"
+  },
+  "endpointLocked": {
+    "message": "The local bridge endpoint is locked to http://127.0.0.1:18765"
+  },
+  "execPaused": {
+    "message": "Execution paused; the outbound queue is frozen"
+  },
+  "execResumed": {
+    "message": "Execution resumed; outbound messages are flowing"
+  },
+  "extUpToDate": {
+    "message": "Extension is up to date"
+  },
+  "extUpdateAvailable": {
+    "message": "A new extension version is available — Chrome will install it shortly."
+  },
+  "extUpdateFailed": {
+    "message": "Extension update check failed"
+  },
+  "extUpdateThrottled": {
+    "message": "Update check throttled by the browser — try again later."
+  },
+  "extVersionLabel": {
+    "message": "Extension"
+  },
+  "hideToken": {
+    "message": "Hide token"
+  },
+  "injectFailed": {
+    "message": "Protocol injection failed."
+  },
+  "injectFailedPrefix": {
+    "message": "Injection failed"
+  },
+  "killSwitch": {
+    "message": "Execution master switch"
+  },
+  "killSwitchIdle": {
+    "message": "Controls local bridge calls and outbound delivery"
+  },
+  "killSwitchOffline": {
+    "message": "Available once connected"
+  },
+  "killSwitchPaused": {
+    "message": "Currently paused; all outbound is blocked"
+  },
+  "langMore": {
+    "message": "More…"
+  },
+  "latestVersion": {
+    "message": "Latest version"
+  },
+  "launchingClient": {
+    "message": "Launching PocketFleet desktop client..."
+  },
+  "needToken": {
+    "message": "Add your PocketFleet communication token first"
+  },
+  "neverTested": {
+    "message": "Not tested"
+  },
+  "nextStep": {
+    "message": "Next step"
+  },
+  "nextTitle": {
+    "message": "Next: nothing to do"
+  },
+  "nextTitleChecking": {
+    "message": "Next: checking the bridge"
+  },
+  "nextTitleOffline": {
+    "message": "Next: start PocketFleet first"
+  },
+  "nextTitlePaused": {
+    "message": "Next: resume execution first"
+  },
+  "nextTitleReady": {
+    "message": "Next: nothing to do"
+  },
+  "noTab": {
+    "message": "No browser tab was found."
+  },
+  "offlineNote": {
+    "message": "A browser cannot start a desktop app by itself. Please open PocketFleet first, then click the button above to retry."
+  },
+  "offlineTitle": {
+    "message": "Next: start PocketFleet first"
+  },
+  "openClient": {
+    "message": "Open PocketFleet window"
+  },
+  "pause": {
+    "message": "Pause"
+  },
+  "pausing": {
+    "message": "Checking…"
+  },
+  "pluginVersionName": {
+    "message": "Extension"
+  },
+  "protocolHint": {
+    "message": "Outgoing messages should start with [PFBus][re:{someone}] or [PFBus][mailto:{someone}]. Clearly specify a single recipient."
+  },
+  "protocolInjected": {
+    "message": "Collaboration protocol written into the input box — press Enter to send it to the current AI."
+  },
+  "protocolLoad": {
+    "message": "Load protocol"
+  },
+  "protocolTitle": {
+    "message": "PocketFleet Multi-Agent Messaging Convention"
+  },
+  "restoreFailed": {
+    "message": "Window restore failed"
+  },
+  "restoreUnsupported": {
+    "message": "This client build has no window-restore endpoint; switch to the PocketFleet window manually"
+  },
+  "resume": {
+    "message": "Resume"
+  },
+  "retry": {
+    "message": "Retry connection"
+  },
+  "ruleSourceBuiltin": {
+    "message": "builtin"
+  },
+  "ruleSourceCloud": {
+    "message": "current"
+  },
+  "ruleVersionName": {
+    "message": "Rules"
+  },
+  "rulesAppliedOnIdle": {
+    "message": "Rules saved — idle pages will pick them up. Running tasks keep the current config."
+  },
+  "rulesCardHint": {
+    "message": "Check and update page matching rules to stay synchronized with cloud configuration."
+  },
+  "rulesCurrentPage": {
+    "message": "current page"
+  },
+  "rulesDetecting": {
+    "message": "Detecting local version…"
+  },
+  "rulesNeedNewerExtension": {
+    "message": "These rules require a newer extension. Run \"Check extension update\" first; the previous rules are kept: "
+  },
+  "rulesPending": {
+    "message": " (pending until idle)"
+  },
+  "rulesReadFailed": {
+    "message": "Version read failed: "
+  },
+  "rulesSourceCloud": {
+    "message": "cloud config"
+  },
+  "rulesSourceLocal": {
+    "message": "built-in"
+  },
+  "rulesTitle": {
+    "message": "Page Rule Configuration"
+  },
+  "rulesTitleShort": {
+    "message": "Page rules"
+  },
+  "rulesUpToDate": {
+    "message": "Page rules are already up to date."
+  },
+  "rulesUpdateFailed": {
+    "message": "Update failed, keeping the previous config: "
+  },
+  "rulesVersionLabel": {
+    "message": "Rules"
+  },
+  "save": {
+    "message": "Save settings"
+  },
+  "saved": {
+    "message": "Settings saved"
+  },
+  "showToken": {
+    "message": "Show token"
+  },
+  "staleScript": {
+    "message": "This chat page runs an older sender script. Refresh the tab and try again."
+  },
+  "stateChecking": {
+    "message": "Checking"
+  },
+  "stateCheckingHint": {
+    "message": "Detecting the local bridge"
+  },
+  "stateConnected": {
+    "message": "Connected"
+  },
+  "stateConnectedHint": {
+    "message": "Local bridge connected — start the meeting in PocketFleet"
+  },
+  "stateNoToken": {
+    "message": "Add your communication token to continue"
+  },
+  "stateOffline": {
+    "message": "Not connected"
+  },
+  "stateOfflineHint": {
+    "message": "Please start the PocketFleet app first"
+  },
+  "statePaused": {
+    "message": "Paused"
+  },
+  "statePausedHint": {
+    "message": "Paused: web AI will not send or receive meeting messages"
+  },
+  "test": {
+    "message": "Test connection"
+  },
+  "toggleFailed": {
+    "message": "Toggle failed"
+  },
+  "toggleToken": {
+    "message": "Show or hide token"
+  },
+  "tokenLabel": {
+    "message": "Communication token"
+  },
+  "unsupportedPage": {
+    "message": "This page is not a supported AI chat session."
+  },
+  "update": {
+    "message": "Update"
+  },
+  "updateCheckFailed": {
+    "message": "Check failed"
+  },
+  "updateNoNewVersion": {
+    "message": "No update available from browser"
+  },
+  "updateNotChecked": {
+    "message": "Not checked"
+  },
+  "updateUnavailable": {
+    "message": "This build cannot check for extension updates (local test build)."
+  },
+  "updateUnknown": {
+    "message": "Unable to determine"
+  }
+}

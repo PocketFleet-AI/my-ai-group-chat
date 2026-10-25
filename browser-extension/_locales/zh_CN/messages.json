@@ -1,0 +1,317 @@
+{
+  "aboutHint": {
+    "message": "插件程序更新由浏览器处理；页面规则单独下载。"
+  },
+  "aboutTitle": {
+    "message": "关于与更新"
+  },
+  "actionsHint": {
+    "message": "保存连接设置，或测试本地桥是否可达。"
+  },
+  "actionsTitle": {
+    "message": "操作"
+  },
+  "adapterNotReady": {
+    "message": "页面适配器未就绪，请刷新当前聊天页签后重试。"
+  },
+  "advanced": {
+    "message": "高级设置"
+  },
+  "appName": {
+    "message": "PocketFleet"
+  },
+  "bridgeDisconnected": {
+    "message": "PocketFleet 已关闭，本地桥不再可达"
+  },
+  "bridgeOnline": {
+    "message": "本地桥正常在线"
+  },
+  "bridgeOnlineShort": {
+    "message": "连接正常"
+  },
+  "bridgePaused": {
+    "message": "本地桥已连接（当前熔断暂停中）"
+  },
+  "bridgeTitle": {
+    "message": "PocketFleet Web Bridge"
+  },
+  "checkAndUpdateRules": {
+    "message": "检查并更新规则"
+  },
+  "checkExtUpdate": {
+    "message": "检查插件更新"
+  },
+  "checkRuleUpdate": {
+    "message": "检查页面规则"
+  },
+  "clientRestored": {
+    "message": "已请求 PocketFleet 前台显示窗口"
+  },
+  "connSettings": {
+    "message": "连接设置"
+  },
+  "connSettingsHint": {
+    "message": "本机端点、通信令牌与连接测试。"
+  },
+  "connectFailed": {
+    "message": "连接失败"
+  },
+  "currentPluginVersion": {
+    "message": "当前插件版本"
+  },
+  "currentRuleVersion": {
+    "message": "当前规则版本"
+  },
+  "detectFailed": {
+    "message": "状态检测失败"
+  },
+  "endpointLabel": {
+    "message": "本机端点"
+  },
+  "endpointLocked": {
+    "message": "当前本地桥端点锁定为 http://127.0.0.1:18765"
+  },
+  "execPaused": {
+    "message": "执行已暂停；出站队列已临时冻结"
+  },
+  "execResumed": {
+    "message": "执行已恢复；出站通信正常流转"
+  },
+  "extUpToDate": {
+    "message": "插件已是最新版本"
+  },
+  "extUpdateAvailable": {
+    "message": "发现新版本插件，Chrome 将自动安装。"
+  },
+  "extUpdateFailed": {
+    "message": "插件更新检查失败"
+  },
+  "extUpdateThrottled": {
+    "message": "浏览器限制了更新检查频率，请稍后再试。"
+  },
+  "extVersionLabel": {
+    "message": "插件版本"
+  },
+  "hideToken": {
+    "message": "隐藏令牌"
+  },
+  "injectFailed": {
+    "message": "协议说明注入失败。"
+  },
+  "injectFailedPrefix": {
+    "message": "注入失败"
+  },
+  "killSwitch": {
+    "message": "执行总开关"
+  },
+  "killSwitchIdle": {
+    "message": "控制本地桥接调用与出站放行"
+  },
+  "killSwitchOffline": {
+    "message": "连接后可用"
+  },
+  "killSwitchPaused": {
+    "message": "当前已暂停，出站全部拦下"
+  },
+  "langMore": {
+    "message": "更多…"
+  },
+  "latestVersion": {
+    "message": "最新版本"
+  },
+  "launchingClient": {
+    "message": "正在唤起 PocketFleet 客户端..."
+  },
+  "needToken": {
+    "message": "请先填入 PocketFleet 通信鉴权令牌"
+  },
+  "neverTested": {
+    "message": "尚未测试"
+  },
+  "nextStep": {
+    "message": "下一步"
+  },
+  "nextTitle": {
+    "message": "下一步：暂时无需操作"
+  },
+  "nextTitleChecking": {
+    "message": "下一步：正在检测本地桥"
+  },
+  "nextTitleOffline": {
+    "message": "下一步：请先打开 PocketFleet"
+  },
+  "nextTitlePaused": {
+    "message": "下一步：请先恢复执行"
+  },
+  "nextTitleReady": {
+    "message": "下一步：暂时无需操作"
+  },
+  "noTab": {
+    "message": "未找到当前浏览器标签页。"
+  },
+  "offlineNote": {
+    "message": "浏览器无法自行启动桌面程序。请先双击打开 PocketFleet，再点上方按钮重试。"
+  },
+  "offlineTitle": {
+    "message": "下一步：请先打开 PocketFleet"
+  },
+  "openClient": {
+    "message": "打开 PocketFleet 窗口"
+  },
+  "pause": {
+    "message": "暂停"
+  },
+  "pausing": {
+    "message": "检测状态中…"
+  },
+  "pluginVersionName": {
+    "message": "插件版本"
+  },
+  "protocolHint": {
+    "message": "出站消息应以 [PFBus][re:{someone}] 或 [PFBus][mailto:{someone}] 开头。请明确指定唯一收件人。"
+  },
+  "protocolInjected": {
+    "message": "多AI协同交互规范已写入输入框，可按回车发送给当前 AI！"
+  },
+  "protocolLoad": {
+    "message": "加载发信规范"
+  },
+  "protocolTitle": {
+    "message": "PocketFleet 多AI协同交互规范"
+  },
+  "restoreFailed": {
+    "message": "唤起失败"
+  },
+  "restoreUnsupported": {
+    "message": "当前客户端未开放唤起接口，请手动切到 PocketFleet 窗口"
+  },
+  "resume": {
+    "message": "恢复"
+  },
+  "retry": {
+    "message": "重试连接"
+  },
+  "ruleSourceBuiltin": {
+    "message": "内置"
+  },
+  "ruleSourceCloud": {
+    "message": "当前"
+  },
+  "ruleVersionName": {
+    "message": "规则版本"
+  },
+  "rulesAppliedOnIdle": {
+    "message": "规则已保存，空闲页面将应用；正在运行的任务不会切换配置。"
+  },
+  "rulesCardHint": {
+    "message": "检查并更新页面匹配规则，与云端配置保持同步。"
+  },
+  "rulesCurrentPage": {
+    "message": "当前页"
+  },
+  "rulesDetecting": {
+    "message": "检测本地版本…"
+  },
+  "rulesNeedNewerExtension": {
+    "message": "该规则要求更新版本的插件，请先「检查插件更新」；原配置保留："
+  },
+  "rulesPending": {
+    "message": "（等待空闲更新）"
+  },
+  "rulesReadFailed": {
+    "message": "版本读取失败："
+  },
+  "rulesSourceCloud": {
+    "message": "云端配置"
+  },
+  "rulesSourceLocal": {
+    "message": "内置"
+  },
+  "rulesTitle": {
+    "message": "页面规则配置"
+  },
+  "rulesTitleShort": {
+    "message": "页面规则"
+  },
+  "rulesUpToDate": {
+    "message": "页面规则已是最新。"
+  },
+  "rulesUpdateFailed": {
+    "message": "更新失败，原配置保留："
+  },
+  "rulesVersionLabel": {
+    "message": "规则版本"
+  },
+  "save": {
+    "message": "保存设置"
+  },
+  "saved": {
+    "message": "设置已保存"
+  },
+  "showToken": {
+    "message": "显示令牌"
+  },
+  "staleScript": {
+    "message": "当前聊天页运行旧版发信脚本，请刷新标签页后再试。"
+  },
+  "stateChecking": {
+    "message": "检测中"
+  },
+  "stateCheckingHint": {
+    "message": "正在检测本地桥"
+  },
+  "stateConnected": {
+    "message": "已连接"
+  },
+  "stateConnectedHint": {
+    "message": "本地桥已连接，请到 PocketFleet 开始会议"
+  },
+  "stateNoToken": {
+    "message": "请先填入通信令牌"
+  },
+  "stateOffline": {
+    "message": "未连接"
+  },
+  "stateOfflineHint": {
+    "message": "请先启动 PocketFleet 客户端"
+  },
+  "statePaused": {
+    "message": "已暂停"
+  },
+  "statePausedHint": {
+    "message": "已暂停，网页 AI 不会收发会议消息"
+  },
+  "test": {
+    "message": "测试连接"
+  },
+  "toggleFailed": {
+    "message": "切换失败"
+  },
+  "toggleToken": {
+    "message": "显示/隐藏令牌"
+  },
+  "tokenLabel": {
+    "message": "通信令牌"
+  },
+  "unsupportedPage": {
+    "message": "当前页面不是支持的 AI 聊天会话页。"
+  },
+  "update": {
+    "message": "更新"
+  },
+  "updateCheckFailed": {
+    "message": "检查失败"
+  },
+  "updateNoNewVersion": {
+    "message": "浏览器未提供新版本"
+  },
+  "updateNotChecked": {
+    "message": "未检查"
+  },
+  "updateUnavailable": {
+    "message": "当前构建无法检查插件更新（本地内测版）。"
+  },
+  "updateUnknown": {
+    "message": "暂无法确认"
+  }
+}

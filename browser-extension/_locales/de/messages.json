@@ -1,0 +1,317 @@
+{
+  "aboutHint": {
+    "message": "Updates der Erweiterung übernimmt der Browser; Seitenregeln werden separat heruntergeladen."
+  },
+  "aboutTitle": {
+    "message": "Info und Updates"
+  },
+  "actionsHint": {
+    "message": "Verbindungseinstellungen speichern oder prüfen, ob die lokale Bridge erreichbar ist."
+  },
+  "actionsTitle": {
+    "message": "Aktionen"
+  },
+  "adapterNotReady": {
+    "message": "Seiten-Adapter nicht bereit. Bitte den Chat-Tab neu laden und erneut versuchen."
+  },
+  "advanced": {
+    "message": "Erweiterte Einstellungen"
+  },
+  "appName": {
+    "message": "PocketFleet"
+  },
+  "bridgeDisconnected": {
+    "message": "PocketFleet geschlossen — die Bridge ist nicht erreichbar"
+  },
+  "bridgeOnline": {
+    "message": "Lokale Bridge online"
+  },
+  "bridgeOnlineShort": {
+    "message": "Verbindung normal"
+  },
+  "bridgePaused": {
+    "message": "Lokale Bridge verbunden (Sicherungskreisler pausiert)"
+  },
+  "bridgeTitle": {
+    "message": "PocketFleet Web Bridge"
+  },
+  "checkAndUpdateRules": {
+    "message": "Regeln prüfen und aktualisieren"
+  },
+  "checkExtUpdate": {
+    "message": "Update der Erweiterung prüfen"
+  },
+  "checkRuleUpdate": {
+    "message": "Seitenregeln prüfen"
+  },
+  "clientRestored": {
+    "message": "PocketFleet-Fenster wurde zum Anzeigen angefordert"
+  },
+  "connSettings": {
+    "message": "Verbindungseinstellungen"
+  },
+  "connSettingsHint": {
+    "message": "Lokaler Endpunkt, Authentifizierungs-Token und Verbindungstest."
+  },
+  "connectFailed": {
+    "message": "Verbindung fehlgeschlagen"
+  },
+  "currentPluginVersion": {
+    "message": "Aktuelle Erweiterung"
+  },
+  "currentRuleVersion": {
+    "message": "Aktuelle Regeln"
+  },
+  "detectFailed": {
+    "message": "Statusprüfung fehlgeschlagen"
+  },
+  "endpointLabel": {
+    "message": "Lokaler Endpunkt"
+  },
+  "endpointLocked": {
+    "message": "Der lokale Bridge-Endpunkt ist auf http://127.0.0.1:18765 festgelegt"
+  },
+  "execPaused": {
+    "message": "Ausführung pausiert, die Ausgangswarteschlange ist eingefroren"
+  },
+  "execResumed": {
+    "message": "Ausführung fortgesetzt, ausgehende Kommunikation fließt normal"
+  },
+  "extUpToDate": {
+    "message": "Die Erweiterung ist aktuell"
+  },
+  "extUpdateAvailable": {
+    "message": "Eine neue Version ist verfügbar, Chrome installiert sie in Kürze."
+  },
+  "extUpdateFailed": {
+    "message": "Update-Prüfung der Erweiterung fehlgeschlagen"
+  },
+  "extUpdateThrottled": {
+    "message": "Der Browser drosselt die Update-Prüfung, bitte später erneut versuchen."
+  },
+  "extVersionLabel": {
+    "message": "Erweiterung"
+  },
+  "hideToken": {
+    "message": "Token ausblenden"
+  },
+  "injectFailed": {
+    "message": "Protokoll konnte nicht eingefügt werden."
+  },
+  "injectFailedPrefix": {
+    "message": "Einfügen fehlgeschlagen"
+  },
+  "killSwitch": {
+    "message": "Ausführungs-Hauptschalter"
+  },
+  "killSwitchIdle": {
+    "message": "Steuert lokale Bridge-Aufrufe und ausgehenden Versand"
+  },
+  "killSwitchOffline": {
+    "message": "Nach dem Verbinden verfügbar"
+  },
+  "killSwitchPaused": {
+    "message": "Derzeit pausiert, alles Ausgehende ist blockiert"
+  },
+  "langMore": {
+    "message": "Mehr…"
+  },
+  "latestVersion": {
+    "message": "Neueste Version"
+  },
+  "launchingClient": {
+    "message": "PocketFleet Desktop-Client wird gestartet..."
+  },
+  "needToken": {
+    "message": "Bitte zuerst das PocketFleet-Kommunikations-Token eintragen"
+  },
+  "neverTested": {
+    "message": "Nicht getestet"
+  },
+  "nextStep": {
+    "message": "Nächster Schritt"
+  },
+  "nextTitle": {
+    "message": "Nächstes: nichts zu tun"
+  },
+  "nextTitleChecking": {
+    "message": "Nächstes: Bridge wird geprüft"
+  },
+  "nextTitleOffline": {
+    "message": "Nächstes: PocketFleet zuerst öffnen"
+  },
+  "nextTitlePaused": {
+    "message": "Nächstes: Ausführung fortsetzen"
+  },
+  "nextTitleReady": {
+    "message": "Nächstes: nichts zu tun"
+  },
+  "noTab": {
+    "message": "Kein Browser-Tab gefunden."
+  },
+  "offlineNote": {
+    "message": "Ein Browser kann keine Desktop-App selbst starten. Bitte zuerst PocketFleet öffnen und dann die Schaltfläche oben anklicken."
+  },
+  "offlineTitle": {
+    "message": "Nächstes: PocketFleet zuerst öffnen"
+  },
+  "openClient": {
+    "message": "PocketFleet-Fenster öffnen"
+  },
+  "pause": {
+    "message": "Pausieren"
+  },
+  "pausing": {
+    "message": "Wird geprüft…"
+  },
+  "pluginVersionName": {
+    "message": "Erweiterung"
+  },
+  "protocolHint": {
+    "message": "Ausgehende Nachrichten sollen mit [PFBus][re:{someone}] oder [PFBus][mailto:{someone}] beginnen. Geben Sie genau einen Empfänger an."
+  },
+  "protocolInjected": {
+    "message": "Kollaborationsprotokoll in das Eingabefeld geschrieben — mit Enter an die aktive KI senden."
+  },
+  "protocolLoad": {
+    "message": "Protokoll laden"
+  },
+  "protocolTitle": {
+    "message": "PocketFleet — Multi-Agenten-Nachrichtenkonvention"
+  },
+  "restoreFailed": {
+    "message": "Wiederherstellen des Fensters fehlgeschlagen"
+  },
+  "restoreUnsupported": {
+    "message": "Dieser Client bietet keine Schnittstelle zum Fensterrestore, bitte manuell zum PocketFleet-Fenster wechseln"
+  },
+  "resume": {
+    "message": "Fortsetzen"
+  },
+  "retry": {
+    "message": "Verbindung erneut versuchen"
+  },
+  "ruleSourceBuiltin": {
+    "message": "integriert"
+  },
+  "ruleSourceCloud": {
+    "message": "aktuell"
+  },
+  "ruleVersionName": {
+    "message": "Regeln"
+  },
+  "rulesAppliedOnIdle": {
+    "message": "Regeln gespeichert — inaktive Seiten übernehmen sie. Laufende Aufgaben behalten die aktuelle Konfiguration."
+  },
+  "rulesCardHint": {
+    "message": "Regeln zur Seitenerkennung prüfen und aktualisieren, um mit der Cloud-Konfiguration synchron zu bleiben."
+  },
+  "rulesCurrentPage": {
+    "message": "aktuelle Seite"
+  },
+  "rulesDetecting": {
+    "message": "Lokale Version wird ermittelt…"
+  },
+  "rulesNeedNewerExtension": {
+    "message": "Diese Regeln erfordern eine neuere Erweiterung. Bitte zuerst „Update der Erweiterung prüfen“ ausführen; die bisherigen Regeln bleiben erhalten: "
+  },
+  "rulesPending": {
+    "message": " (wartet auf Leerlauf)"
+  },
+  "rulesReadFailed": {
+    "message": "Version konnte nicht gelesen werden: "
+  },
+  "rulesSourceCloud": {
+    "message": "Cloud-Konfiguration"
+  },
+  "rulesSourceLocal": {
+    "message": "eingebaut"
+  },
+  "rulesTitle": {
+    "message": "Seiten-Regelkonfiguration"
+  },
+  "rulesTitleShort": {
+    "message": "Seitenregeln"
+  },
+  "rulesUpToDate": {
+    "message": "Die Seitenregeln sind bereits aktuell."
+  },
+  "rulesUpdateFailed": {
+    "message": "Aktualisierung fehlgeschlagen, Konfiguration bleibt erhalten: "
+  },
+  "rulesVersionLabel": {
+    "message": "Regeln"
+  },
+  "save": {
+    "message": "Einstellungen speichern"
+  },
+  "saved": {
+    "message": "Einstellungen gespeichert"
+  },
+  "showToken": {
+    "message": "Token anzeigen"
+  },
+  "staleScript": {
+    "message": "Diese Chatseite führt ein älteres Senderskript aus. Bitte den Tab neu laden und erneut versuchen."
+  },
+  "stateChecking": {
+    "message": "Wird geprüft"
+  },
+  "stateCheckingHint": {
+    "message": "Lokale Bridge wird erkannt"
+  },
+  "stateConnected": {
+    "message": "Verbunden"
+  },
+  "stateConnectedHint": {
+    "message": "Lokale Bridge verbunden — Besprechung in PocketFleet starten"
+  },
+  "stateNoToken": {
+    "message": "Bitte zuerst das Kommunikations-Token eintragen"
+  },
+  "stateOffline": {
+    "message": "Nicht verbunden"
+  },
+  "stateOfflineHint": {
+    "message": "Bitte zuerst die PocketFleet-App starten"
+  },
+  "statePaused": {
+    "message": "Pausiert"
+  },
+  "statePausedHint": {
+    "message": "Pausiert: Web-KI sendet oder empfängt keine Besprechungsnachrichten"
+  },
+  "test": {
+    "message": "Verbindung testen"
+  },
+  "toggleFailed": {
+    "message": "Umschalten fehlgeschlagen"
+  },
+  "toggleToken": {
+    "message": "Token ein- oder ausblenden"
+  },
+  "tokenLabel": {
+    "message": "Kommunikations-Token"
+  },
+  "unsupportedPage": {
+    "message": "Diese Seite ist keine unterstützte KI-Chatsitzung."
+  },
+  "update": {
+    "message": "Aktualisieren"
+  },
+  "updateCheckFailed": {
+    "message": "Prüfung fehlgeschlagen"
+  },
+  "updateNoNewVersion": {
+    "message": "Browser bietet kein Update an"
+  },
+  "updateNotChecked": {
+    "message": "Nicht geprüft"
+  },
+  "updateUnavailable": {
+    "message": "Dieser Build kann keine Erweiterungs-Updates prüfen (lokaler Testbuild)."
+  },
+  "updateUnknown": {
+    "message": "Nicht feststellbar"
+  }
+}

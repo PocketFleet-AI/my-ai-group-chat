@@ -1,0 +1,18 @@
+# OS and Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+.idea/
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Binaries and local builds
+*.zip
+*.exe
+
+# Credentials and pairing
+seed_token.json

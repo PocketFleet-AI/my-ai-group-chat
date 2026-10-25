@@ -1,0 +1,156 @@
+{
+  "manifest_version": 3,
+  "name": "PocketFleet Web Bridge",
+  "version": "0.9.6",
+  "version_name": "0.9.6 · 2026-10-24 Material Chain & 5-Seat Beta Protocol",
+  "default_locale": "en",
+  "description": "Local communication bridge connecting browser AI agents (ChatGPT, Claude, Gemini, Copilot, DeepSeek) to PocketFleet.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmmn5RoBeN2OJhkb8afU1nyS6TDVUNBxn4zb+3woZFO3A9+GJdOfpRzDcp3AaQlanGV3PNWAXR2vtcl2VFeZ+py6uOvMfLb3ZWvQNGguMElcTKHSp3pAp9FhuEPJ6vb1cOU7U6DS01J9W8h7rEr3apz5HBXukSrFEEbXfEsRjucOb4xnNxok8cQ8hXw18LTTzmL1Or+PMhVT1H5RKIrFM03lDOBMRTrMtd+HjlV/m7sBNv8BsnMBLrxKIMY1M9WEs8+CVUymZq+hccXFAqFInqllBXBNFXOj2Rf4StsGDgRx6GTPT86LkC1Z09zSrGl6nmLdp44uOCgHj2bmRHAMOGwIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "storage",
+    "alarms",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:18767/*",
+    "https://pocketfleet-selectors.hi-yihua.workers.dev/*",
+    "https://chatgpt.com/*",
+    "https://*.chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://*.claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://*.gemini.google.com/*",
+    "https://chat.deepseek.com/*",
+    "https://*.deepseek.com/*",
+    "https://copilot.com/*",
+    "https://*.copilot.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://*.copilot.microsoft.com/*",
+    "https://chat.qwen.ai/*",
+    "https://*.qwen.ai/*",
+    "https://qwen.ai/*",
+    "https://tongyi.aliyun.com/*",
+    "https://*.tongyi.aliyun.com/*",
+    "https://tongyi.ai/*",
+    "https://*.tongyi.ai/*",
+    "https://www.doubao.com/*",
+    "https://*.doubao.com/*",
+    "https://chatglm.cn/*",
+    "https://*.chatglm.cn/*",
+    "https://kimi.moonshot.cn/*",
+    "https://*.kimi.moonshot.cn/*",
+    "https://www.kimi.com/*",
+    "https://*.kimi.com/*",
+    "https://grok.com/*",
+    "https://*.grok.com/*",
+    "http://127.0.0.1:18765/*",
+    "http://127.0.0.1:18766/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://*.claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://*.gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*",
+        "https://copilot.com/*",
+        "https://*.copilot.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://*.copilot.microsoft.com/*",
+        "https://chat.qwen.ai/*",
+        "https://*.qwen.ai/*",
+        "https://qwen.ai/*",
+        "https://tongyi.aliyun.com/*",
+        "https://*.tongyi.aliyun.com/*",
+        "https://tongyi.ai/*",
+        "https://*.tongyi.ai/*",
+        "https://www.doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://chatglm.cn/*",
+        "https://*.chatglm.cn/*",
+        "https://kimi.moonshot.cn/*",
+        "https://*.kimi.moonshot.cn/*",
+        "https://www.kimi.com/*",
+        "https://*.kimi.com/*",
+        "https://grok.com/*",
+        "https://*.grok.com/*"
+      ],
+      "js": [
+        "selector_definitions.js",
+        "adapter_profiles.js",
+        "selector_engine.js",
+        "selector_updates.js",
+        "selector_client.js",
+        "content_bundle.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/pocketfleet-16.png",
+    "24": "icons/pocketfleet-24.png",
+    "32": "icons/pocketfleet-32.png",
+    "48": "icons/pocketfleet-48.png",
+    "128": "icons/pocketfleet-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/pocketfleet-24.png"
+      ],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://*.claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://*.gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*",
+        "https://copilot.com/*",
+        "https://*.copilot.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://*.copilot.microsoft.com/*",
+        "https://chat.qwen.ai/*",
+        "https://*.qwen.ai/*",
+        "https://qwen.ai/*",
+        "https://tongyi.aliyun.com/*",
+        "https://*.tongyi.aliyun.com/*",
+        "https://tongyi.ai/*",
+        "https://*.tongyi.ai/*",
+        "https://www.doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://chatglm.cn/*",
+        "https://*.chatglm.cn/*",
+        "https://kimi.moonshot.cn/*",
+        "https://*.kimi.moonshot.cn/*",
+        "https://www.kimi.com/*",
+        "https://*.kimi.com/*",
+        "https://grok.com/*",
+        "https://*.grok.com/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PocketFleet Web Bridge",
+    "default_icon": {
+      "16": "icons/pocketfleet-16.png",
+      "24": "icons/pocketfleet-24.png",
+      "32": "icons/pocketfleet-32.png"
+    }
+  }
+}

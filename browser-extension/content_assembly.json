@@ -1,0 +1,161 @@
+{
+  "formatVersion": 1,
+  "baseline": {
+    "commit": "dc02ed8a43178bae7d0667caf9d21379f9ce31b1",
+    "normalizedBodySha256": "f5dbd41e1d5030809e12d42518c88fd64ae8a8a6a9d3e6c9c2a50f0ef4a89867"
+  },
+  "sections": [
+    {
+      "id": "runtime-preamble",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "i18n-catalog",
+      "file": "content_i18n.js"
+    },
+    {
+      "id": "runtime-state",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "runtime-ownership",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "panel-view",
+      "file": "content_panel.js"
+    },
+    {
+      "id": "i18n-render",
+      "file": "content_i18n.js"
+    },
+    {
+      "id": "panel-status",
+      "file": "content_panel.js"
+    },
+    {
+      "id": "runtime-transport",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "dom-editor",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "submission-busy",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_submission.js"
+    },
+    {
+      "id": "dom-activation",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "submission-standard",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_submission.js"
+    },
+    {
+      "id": "delivery-instructions",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_delivery.js"
+    },
+    {
+      "id": "protocol-json",
+      "file": "content_protocol.js"
+    },
+    {
+      "id": "outbound-tools",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "outbound-stability",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "protocol-codeai-header",
+      "file": "content_protocol.js"
+    },
+    {
+      "id": "delivery-codeai-state",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_delivery.js"
+    },
+    {
+      "id": "protocol-codeai",
+      "file": "content_protocol.js"
+    },
+    {
+      "id": "outbound-notices",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "outbound-openclaw",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "delivery-codeai",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_delivery.js"
+    },
+    {
+      "id": "dom-qwen",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "submission-qwen",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_submission.js"
+    },
+    {
+      "id": "dom-visible-text",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "protocol-theta",
+      "file": "content_protocol.js"
+    },
+    {
+      "id": "delivery-theta",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_delivery.js"
+    },
+    {
+      "id": "delivery-bootstrap-text",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_delivery.js"
+    },
+    {
+      "id": "entry-listeners",
+      "file": "content.js"
+    },
+    {
+      "id": "runtime-route",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "protocol-telegram",
+      "file": "content_protocol.js"
+    },
+    {
+      "id": "outbound-telegram-state",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "dom-actions",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "outbound-telegram",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_outbound.js"
+    },
+    {
+      "id": "runtime-scheduling",
+      "file": "AI_CHANGE_REQUIRES_APPROVAL/content_runtime.js"
+    },
+    {
+      "id": "entry-startup",
+      "file": "content.js"
+    },
+    {
+      "id": "dom-auto-select",
+      "file": "content_dom.js"
+    },
+    {
+      "id": "entry-exports",
+      "file": "content.js"
+    }
+  ]
+}

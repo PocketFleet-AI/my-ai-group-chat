@@ -1,0 +1,27 @@
+{
+  "name": "my-ai-group-chat-extension",
+  "version": "0.9.6",
+  "description": "Open-source Chrome Extension Bridge for My AI Group Chat",
+  "scripts": {
+    "build": "node tools/build-content.cjs",
+    "check": "node tools/build-content.cjs --check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PocketFleet-AI/my-ai-group-chat.git"
+  },
+  "keywords": [
+    "ai",
+    "group-chat",
+    "multi-ai",
+    "chatgpt",
+    "claude",
+    "gemini",
+    "deepseek",
+    "qwen",
+    "chrome-extension",
+    "localhost"
+  ],
+  "author": "PocketFleet-AI",
+  "license": "Apache-2.0"
+}

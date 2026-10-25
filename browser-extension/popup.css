@@ -1,0 +1,515 @@
+/* PocketFleet Web Bridge popup — v3 基准重做（2026-10-12 指挥官指令）
+   基准：index-v3.html 蓝调玻璃层 + 黄/肉色注释块 + 小字号
+   尺寸：宽 368px（= 600 × 0.613，指挥官指令）；高 ≤600px，纵向可滚，横向禁滚 */
+
+:root {
+  --ink: #12213c;
+  --ink-2: #33456b;
+  --muted: #6d7ea6;
+  --line: #d3dff5;
+  --line-2: #e3ecfa;
+  --blue: #1f5fd4;
+  --blue-d: #1848a3;
+  --blue-l: #3b7ff0;
+  --tint: #eaf2fe;
+  --tint-2: #dde9fc;
+  --ok: #1f9d5c;
+  --ok-bg: #e3f7ed;
+  --amber: #5c4a12;
+  --amber-bg: #fff5dc;
+  --amber-line: #f0d79a;
+  --rose: #8c2f1c;
+  --rose-bg: #fdeae5;
+  --rose-line: #f4c9bd;
+  --page-1: #eaf3ff;
+  --page-2: #d6e7fb;
+  --page-3: #c3dcfa;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  width: 368px;
+  max-width: 368px;
+  min-width: 368px;
+  overflow-x: hidden;   /* 横向滚动条对人类极恶心（指挥官指令） */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  background: linear-gradient(170deg, var(--page-1) 0%, var(--page-2) 55%, var(--page-3) 100%);
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+svg { flex-shrink: 0; }
+
+.pf {
+  width: 100%;
+  padding: 10px 10px 12px;
+  position: relative;
+}
+/* 白光斑：让蓝调底不呆板 */
+.pf::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(110px 110px at 88% 4%, rgba(255, 255, 255, .5), transparent 70%),
+    radial-gradient(150px 150px at 6% 96%, rgba(255, 255, 255, .38), transparent 70%);
+  pointer-events: none;
+}
+.pf > * { position: relative; }
+
+/* ---------- 顶栏（单行） ---------- */
+.top {
+  display: flex; align-items: center; gap: 7px;
+  margin-bottom: 8px;
+  flex-wrap: nowrap;
+  width: auto;
+}
+/* 品牌 logo：直接展示结算主机提供的 24px 原图（icons/logo-24.png）。
+   原图是圆形图标 —— 任何 border-radius 都会把它裁成方角、破坏形状，
+   因此这里不做圆角、不加底色、不加阴影：原样呈现。
+   离线态仅用 filter 变灰，不改动图片。 */
+.logo {
+  width: 24px; height: 24px; flex: 0 0 auto;
+  display: grid; place-items: center;
+  transition: filter .25s ease;
+}
+.logo img { width: 24px; height: 24px; display: block; }
+/* 离线：logo 去饱和 + 压暗 —— 用 filter，不改动图片文件本身。
+   注意：24px 小尺寸上"轻微降饱和"肉眼几乎看不出（此前实测 CSS 生效但用户观感无变化），
+   因此这里用 saturate(0) + 整体压暗，与在线态拉开明确距离。 */
+.logo[data-offline="1"] {
+  filter: grayscale(1) brightness(.72) contrast(.95);
+  opacity: .9;
+}
+/* 标题 + 版本号：同行、baseline 对齐（2026-10-13 指挥官要求）。
+   原来是 grid 上下两行，白占一行高度；现改为 flex 单行，
+   align-items:baseline 让版本号与标题的文字底边对齐，而不是居中对齐。 */
+.brand { display: flex; align-items: baseline; gap: 5px; min-width: 0; flex: 1 1 auto; width: auto; }
+.bname {
+  font-size: 12.5px; font-weight: 800; letter-spacing: -.2px; line-height: 1.15;
+  color: #0f1c33;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  min-width: 0;
+}
+.bver {
+  font-size: 9.5px; font-style: normal; color: var(--muted); font-weight: 600;
+  line-height: 1.15; flex: 0 0 auto; white-space: nowrap;
+}
+
+/* 状态点：顶栏只留色点，文字由状态卡承担 */
+.dot-only {
+  flex: 0 0 auto; width: 18px; height: 18px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  background: linear-gradient(150deg, #e6f9ef, var(--ok-bg));
+  border: 1px solid rgba(31, 157, 92, .28);
+}
+.dot-only .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.dot-only[data-state="paused"] { background: linear-gradient(150deg, #f0f3f8, #e6ebf3); border-color: rgba(107, 126, 166, .25); }
+.dot-only[data-state="paused"] .dot { background: #9fb0cc; }
+.dot-only[data-state="offline"] { background: linear-gradient(150deg, #fdeae5, #f8ddd6); border-color: rgba(140, 47, 28, .28); }
+.dot-only[data-state="offline"] .dot { background: var(--rose); }
+.dot-only[data-state="checking"] { background: linear-gradient(150deg, #f0f3f8, #e6ebf3); border-color: rgba(107, 126, 166, .25); }
+.dot-only[data-state="checking"] .dot { background: #9fb0cc; }
+
+.lang-wrap { position: relative; flex: 0 0 auto; z-index: 20; }
+.lang {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 8px; border-radius: 8px;
+  border: 1px solid rgba(31, 95, 212, .22);
+  background: linear-gradient(150deg, #fff, var(--tint));
+  box-shadow: 0 1px 4px rgba(40, 80, 150, .10);
+  color: #1b3a6b; font-size: 11px; font-weight: 600;
+  white-space: nowrap;
+}
+.lang:hover { background: #fff; }
+.lang .globe { opacity: .5; }
+.lang .chev { opacity: .5; }
+.flag { width: 14px; height: 10px; border-radius: 2px; background-size: cover; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+.langmenu {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  width: 176px; max-height: 260px; overflow-y: auto;
+  border-radius: 11px; overflow: hidden;
+  background: linear-gradient(160deg, rgba(255, 255, 255, .97), rgba(226, 238, 253, .95));
+  border: 1px solid rgba(31, 95, 212, .18);
+  box-shadow: 0 10px 24px rgba(30, 70, 140, .18);
+  padding: 4px;
+}
+.langmenu[hidden] { display: none; }
+.lang-item {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; padding: 7px 9px; border: 0; border-radius: 8px;
+  background: transparent; text-align: left;
+  color: #122a33; font-size: 12px;
+}
+.lang-item:hover { background: rgba(31, 95, 212, .08); }
+.lang-item[aria-selected="true"] {
+  background: linear-gradient(150deg, var(--tint), rgba(221, 233, 252, .75));
+  color: var(--blue-d); font-weight: 700;
+}
+.lang-item .tick { margin-left: auto; color: var(--ok); flex: 0 0 auto; }
+
+/* 视觉隐藏但保留给脚本与读屏：v3 把状态文字放在状态卡里，
+   顶栏只留色点；这些节点仍须存在，否则 popup.js 引用会断。 */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  margin: 0; padding: 0; border: 0;
+}
+
+/* ---------- 卡片（玻璃层，唯一样式） ---------- */
+.card {
+  background: rgba(255, 255, 255, .62);
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 11px;
+  box-shadow: 0 2px 10px rgba(40, 80, 150, .07);
+}
+/* 层级靠透明度：状态卡最重 → 普通卡 → 元信息最轻 */
+.card.hero { background: linear-gradient(150deg, rgba(255, 255, 255, .78), rgba(226, 238, 253, .72)); padding: 9px 10px; margin-bottom: 8px; }
+/* 状态卡内的「下一步」提示语：与状态同行区之下，合并成一卡（见 popup.html 注释） */
+.next-body {
+  margin: 4px 0 0; padding-left: 15px;
+  font-size: 10.5px; line-height: 1.4;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+/* 暂停/离线时提示语转肉色：此刻需要用户动作 */
+.card.hero[data-tone="rose"] .next-body { color: #9c4a35; }
+.card.sw { padding: 9px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 9px; }
+.card.sw[data-alarm="1"] { background: linear-gradient(150deg, rgba(255, 240, 235, .92), rgba(252, 222, 214, .88)); border-color: rgba(196, 64, 42, .22); }
+.card.sw[data-alarm="1"] .sw-txt b { color: var(--rose); }
+.card.sw[data-alarm="1"] .sw-txt small { color: #9c4a35; }
+
+.staterow { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.staterow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(31, 157, 92, .16); flex: 0 0 auto; }
+.staterow .dot[data-state="offline"], .staterow .dot[data-state="paused"], .staterow .dot[data-state="checking"] { background: #9fb0cc; box-shadow: 0 0 0 3px rgba(159, 176, 204, .2); }
+.staterow b { font-size: 12.5px; color: #0f1c33; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.who { margin-left: auto; font-size: 10px; color: var(--muted); flex: 0 0 auto; max-width: 96px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.pill {
+  font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 999px;
+  background: var(--tint); color: var(--blue); font-style: normal; flex: 0 0 auto;
+}
+.pill.ok { background: var(--ok-bg); color: var(--ok); }
+
+/* ---------- 注释块：黄色（下一步）/ 肉色（阻断） ---------- */
+/* 指挥官指出：注释用的黄与肉色加入后页面才好看。暖色是蓝底的补色，层级最跳。 */
+.note-amber, .note-rose {
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+.note-amber {
+  background: linear-gradient(150deg, rgba(255, 250, 232, .92), var(--amber-bg));
+  border: 1px solid var(--amber-line);
+  box-shadow: 0 2px 8px rgba(200, 160, 60, .10);
+}
+.note-rose {
+  background: linear-gradient(150deg, rgba(255, 240, 235, .92), var(--rose-bg));
+  border: 1px solid var(--rose-line);
+  box-shadow: 0 2px 8px rgba(196, 64, 42, .10);
+}
+.note-amber strong, .note-rose strong { display: block; font-size: 11.5px; margin-bottom: 2px; line-height: 1.3; }
+.note-amber strong { color: var(--amber); }
+.note-rose strong { color: var(--rose); }
+.note-amber p, .note-rose span { margin: 0; font-size: 11px; line-height: 1.45; }
+.note-amber p { color: #6f5c22; }
+.note-rose span { color: #9c4a35; }
+/* 暂停态：黄色块会误导（黄色=无需操作，但实际需用户动作）⇒ 整体转肉色 */
+.note-amber[data-tone="rose"] {
+  background: linear-gradient(150deg, rgba(255, 240, 235, .92), var(--rose-bg));
+  border-color: var(--rose-line);
+  box-shadow: 0 2px 8px rgba(196, 64, 42, .10);
+}
+.note-amber[data-tone="rose"] strong { color: var(--rose); }
+.note-amber[data-tone="rose"] p { color: #9c4a35; }
+.note-rose[hidden], .note-amber[hidden] { display: none; }
+
+/* ---------- 主按钮 ---------- */
+.next-row { margin-bottom: 8px; }
+.cta {
+  width: 100%;
+  padding: 10px; border: 0; border-radius: 10px;
+  font-size: 12.5px; font-weight: 700; color: #fff;
+  background: linear-gradient(150deg, var(--blue-l), var(--blue));
+  box-shadow: 0 3px 12px rgba(31, 95, 212, .30);
+}
+.cta:hover { filter: brightness(1.05); }
+.cta[data-off="1"] {
+  background: linear-gradient(150deg, #e3e9f2, #d6dfec);
+  color: #8a99b3; box-shadow: none; border: 1px solid var(--line-2);
+}
+
+/* ---------- 元信息（三行，最轻玻璃） ---------- */
+.meta {
+  border-radius: 10px; overflow: hidden;
+  background: rgba(255, 255, 255, .42);
+  border: 1px solid rgba(255, 255, 255, .85);
+  margin-bottom: 8px;
+}
+.mrow { display: flex; align-items: center; gap: 6px; padding: 7px 10px; font-size: 11px; }
+.mrow + .mrow { border-top: 1px solid rgba(31, 95, 212, .10); }
+.mrow b { color: #1d2b45; font-weight: 600; flex: 0 0 auto; }
+.mrow .val { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- 折叠（低频区，默认收起） ---------- */
+.fold {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .62);
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 2px 10px rgba(40, 80, 150, .07);
+  margin-bottom: 7px;
+}
+.fold > summary {
+  cursor: pointer; list-style: none;
+  padding: 8px 10px;
+  font-size: 11.5px; font-weight: 600; color: #22345a;
+  display: flex; align-items: center;
+}
+/* 折叠区配色按语义分工（2026-10-20 指挥官采纳 C 方案）：
+   连接设置=黄（要动手配，唯一暖色）｜协同规范=近白（只读，最淡）｜
+   关于更新=蓝灰（信息，冷色）｜执行总开关=肉红（危险操作，唯一的红）。
+   收起时只染标题行，展开后面板走玻璃层，避免整块过艳。 */
+.fold.tint-amber > summary {
+  background: linear-gradient(150deg, rgba(255, 250, 232, .95), var(--amber-bg));
+  border-radius: 9px;
+  color: var(--amber);
+}
+.fold.tint-slate > summary {
+  /* 只读区块（协同规范）：最淡一档，不与「要动手配」「信息」争注意力 */
+  background: linear-gradient(150deg, rgba(248, 250, 253, .95), #eef2f8);
+  border-radius: 9px;
+  color: #5a6b85;
+}
+.fold.tint-blue > summary {
+  background: linear-gradient(150deg, rgba(234, 242, 254, .95), var(--tint));
+  border-radius: 9px;
+  color: var(--blue-d);
+}
+/* 标题左侧色标：收起时也能一眼分出这是哪一类 */
+.fold[class*="tint-"] > summary::before {
+  content: "";
+  width: 3px; height: 11px; border-radius: 2px;
+  margin-right: 6px; flex: 0 0 auto;
+  background: currentColor; opacity: .45;
+}
+.fold[open] > summary { border-radius: 9px 9px 0 0; }
+.fold[open] > summary::after { color: currentColor; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: "▾"; margin-left: auto; color: #8fa1c0; font-size: 10px; }
+.fold[open] > summary::after { content: "▴"; }
+.inbody { padding: 0 10px 8px; display: grid; gap: 5px; }
+.fold-copy { margin: 0; font-size: 10.5px; line-height: 1.45; color: var(--muted); }
+.about-updates > h2 {
+  margin: 0; padding: 6px 10px; font-size: 11.5px; font-weight: 600; line-height: 1.25;
+  /* 蓝灰＝信息类（冷色）。2026-10-20 指挥官采纳 C 方案：
+     暖色只留给「要动手配」，红色只留给「危险操作」，此块回归白底、只标题带色。 */
+  color: #1c232b; border-radius: 9px 9px 0 0;
+  background: linear-gradient(150deg, #dde7f6, #cddcf0);
+}
+/* 版本与更新：两组同构的横向条目，4 列（名称 / 当前 / 最新 / 更新按钮）。
+   2026-10-13 指挥官定：插件版本与规则版本各占一行、左右并排看当前与最新，
+   按钮只留「更新」二字，把高频动作和版本信息放在同一视线内。
+
+   ⚠ 关键：`.update-row` 不是 grid 容器，而是**同一个 grid 的行片段**——
+   靠 display:contents 把子元素直接提升为父级grid item。这样两行共享
+   同一套列宽，`.update-name` 才会左右对齐（各行独立成 grid 时，
+   第一列 auto 按本行内容算宽，英文 Extension/Rules 长度不同必然错位）。 */
+.update-rows {
+  display: grid;
+  /* 第一列必须定宽：display:contents 下 .update-name 的 white-space:nowrap
+     会让 auto 轨道吞掉全部剩余空间，导致第2/3 列被压成 0（值看不见）。
+     定宽后长文案靠 ellipsis 省略，两行仍严格对齐。 */
+  grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1fr) auto;
+  grid-template-rows: 28px 28px;
+  align-items: center;
+  gap: 0 6px;
+  font-size: 10.5px;
+}
+/* 两行子元素数不对称（插件行 3 项 / 规则行 4 项）时，grid 自动填充会把规则行的
+   首项塞进第 1 行末列，两行内容挤成一行。必须显式定列，游标填满第 1 行后才会换行。 */
+.update-row > .update-name { grid-column: 1; }
+.update-row > .update-cur { grid-column: 2; }
+.update-row > .update-latest { grid-column: 3; }
+.update-row > .btn.update-btn { grid-column: 4; }
+.update-row {
+  display: contents;
+}
+.update-row + .update-row > .update-name,
+.update-row + .update-row > .update-cur,
+.update-row + .update-row > .update-latest {
+  border-top: 1px solid rgba(160, 74, 50, .22);
+}
+
+.update-name {
+  font-weight: 700;
+  color: #1c232b;
+  white-space: nowrap;
+  height: 28px;
+  line-height: 28px;
+}
+.update-cur {
+  color: #1c232b;
+  font-weight: 700;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 28px;
+  line-height: 28px;
+}
+.update-latest {
+  color: #5a6570;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 28px;
+  line-height: 28px;
+}
+/* 按钮：宽度随文案自适应（法语 « Mettre à jour » 比中文「更新」长），
+   但绝不换行、不撑破容器 —— 46px 固定宽会把「更新」挤成两行。 */
+.btn.update-btn {
+  /* 权重须高于 .btn：.btn 定义在本块之后，同权重会覆盖 padding，
+     导致 min-height 从未生效（实测高度一直是 30px）。 */
+  color: var(--blue);
+  border-color: rgba(31, 95, 212, .3);
+  background: linear-gradient(150deg, #fff, var(--tint));
+  /* 与下方熔断按钮（Pause/Resume）同宽，两处视觉对齐 */
+  min-width: 76px;
+  padding: 0 8px;
+  height: 22px;
+  min-height: 22px;
+  font-size: 10.5px;
+  line-height: 1;
+  gap: 3px;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  align-self: center;
+}
+
+.frow { display: grid; gap: 4px; min-width: 0; }
+.frow-label { font-size: 10px; color: var(--muted); font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.f-ico { display: grid; place-items: center; color: #7b8aa8; flex: 0 0 auto; }
+.frow input {
+  width: 100%; min-width: 0;
+  padding: 6px 8px; font-size: 11.5px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .9);
+  color: var(--ink);
+}
+.frow input:focus { outline: 2px solid #a6d7c1; outline-offset: 1px; }
+.tk { position: relative; display: block; }
+.tk input { padding-right: 30px; }
+.eye { position: absolute; right: 6px; top: 7px; border: 0; background: transparent; color: #7b8aa8; padding: 0; display: flex; }
+
+.mini { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  border-radius: 8px; padding: 7px 10px;
+  border: 1px solid rgba(31, 95, 212, .3);
+  background: linear-gradient(150deg, #fff, var(--tint));
+  color: var(--blue);
+  font-size: 11px; font-weight: 600; line-height: 1.25;
+  min-height: 30px;
+  white-space: normal; overflow-wrap: anywhere; text-align: center;
+}
+.btn:hover { background: var(--tint-2); }
+.btn.solid { color: #fff; background: linear-gradient(150deg, var(--blue-l), var(--blue)); border-color: transparent; }
+.btn.full { width: 100%; }
+.btn.danger { color: #fff; background: linear-gradient(115deg, #ad4c35, #b55032); border-color: #a74d33; }
+.btn.danger.resume { background: linear-gradient(150deg, var(--blue-l), var(--blue)); border-color: transparent; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ico { width: 11px; height: 11px; }
+.sw-txt { display: grid; gap: 1px; min-width: 0; flex: 1 1 auto; }
+.sw-txt b { font-size: 11.5px; color: #0f1c33; font-weight: 700; }
+.sw-txt small { font-size: 10px; color: var(--muted); line-height: 1.35; }
+/* 熔断按钮：文字不折行。窄容器里flex 按钮若允许换行会断成「Checki / ng…」。 */
+.card.sw > .btn {
+  flex: 0 0 auto; white-space: nowrap; max-width: 46%;
+  /* 与 .update-btn 同宽，两处视觉对齐 */
+  min-width: 76px; padding: 0 8px; min-height: 22px; line-height: 1; gap: 3px;
+}
+
+/* ---------- 连接设置单行条 ---------- */
+.card.conn-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  border-radius: 9px;
+  background: linear-gradient(150deg, rgba(255, 250, 232, .95), var(--amber-bg));
+  border: 1px solid var(--amber-line);
+  box-shadow: 0 1px 4px rgba(200, 160, 60, .08);
+}
+.conn-bar .conn-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--amber);
+}
+.conn-bar .conn-info::before {
+  content: "";
+  width: 3px; height: 11px; border-radius: 2px;
+  margin-right: 2px; flex: 0 0 auto;
+  background: currentColor; opacity: .45;
+}
+.conn-bar .conn-info b {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.conn-bar .port-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #7a6318;
+  background: rgba(255, 255, 255, .75);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(240, 215, 154, .8);
+  white-space: nowrap;
+}
+.conn-bar .btn {
+  min-height: 22px;
+  padding: 0 10px;
+  font-size: 10.5px;
+  border-color: var(--amber-line);
+  color: var(--amber);
+  background: #fff;
+  flex: 0 0 auto;
+}
+.conn-bar .btn:hover {
+  background: var(--amber-bg);
+}
+
+/* ---------- 状态输出行 ---------- */
+.status-line {
+  display: flex; align-items: center; gap: 7px;
+  border-radius: 9px; padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  background: rgba(255, 255, 255, .42);
+  font-size: 10.5px; line-height: 1.4;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  margin-bottom: 8px;
+}
+.status-line::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: 0 0 auto; }
+.status-line[data-tone="ok"] { color: #136843; background: rgba(227, 247, 237, .75); }
+.status-line[data-tone="warn"] { color: var(--amber); background: rgba(255, 245, 220, .8); }
+.status-line[data-tone="err"] { color: var(--rose); background: rgba(253, 234, 229, .8); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
