@@ -1,6 +1,6 @@
 # Setup and Advanced Guide
 
-[Product overview](../README.md)
+[Product overview](../README.md) | [中文详细配置手册](详细配置手册.md)
 
 This guide covers the current desktop workflow. Public release packages remain subject to clean-Windows acceptance testing. The public extension source alone does not build or replace the desktop engine.
 

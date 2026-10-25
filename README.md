@@ -1,6 +1,9 @@
 <div align="center">
 
 # My AI Group Chat
+
+**English** | [简体中文](README.zh-CN.md)
+
 **Bring Your Existing AI Subscriptions Together.**
 *Stop paying twice for AI power. Amplify the tools you already subscribe to — no extra per‑token API markup.*
 Early preview used by indie devs doing multi‑model code reviews & refactors.
