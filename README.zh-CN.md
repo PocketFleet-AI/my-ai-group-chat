@@ -72,7 +72,7 @@
 | **Team 团队版** | **6 席** | **$39.99** | **12 个月** | 复杂多智能体协作管线 |
 | **Ultra 旗舰版** | **12 席** | **$79.99** | **12 个月** | 高密度多模型矩阵协同 |
 
-*购买通道：Lemon Squeezy 入口将在正式发版时激活。*
+*购买通道：Lemon Squeezy [pocketfleet.lemonsqueezy.com](https://pocketfleet.lemonsqueezy.com)，一次性支付，12 个月有效期，不自动续费。*
 
 首批预览用户可通过私信作者或加入早期内测社群领取 **30 天 Solo 4 席体验码**。直接在桌面控制中心激活，无需绑定信用卡。到期后所有本地配置与记录完整保留，自动平滑回落至永久免费 2 席。*(体验码不预置在安装包内)*。
 
@@ -90,7 +90,8 @@
 ## 💻 系统要求与发布状态
 * **系统**：Windows 10 / 11 64位（任务执行期间电脑需保持开机且 AI 标签页可用）。
 * **网络**：需具备直连 Telegram 及所选 AI 服务商的网络环境。
-* **安装包状态**：纯净 VM 验收中，尚未公开发布，正式构建将上传至 [GitHub Releases](https://github.com/PocketFleet-AI/my-ai-group-chat/releases)。
+* **安装包状态**：**v3.0.0 已发布（早期预览）**。安装版（用户级安装、免 UAC 弹窗）与绿色便携版均在 [GitHub Releases](https://github.com/PocketFleet-AI/my-ai-group-chat/releases) 下载。安装结束时会自动打开使用说明与随包的 `browser-extension/` 目录，方便立刻安装浏览器扩展。
+* **浏览器扩展**：在 Chrome 应用商店搜索 *PocketFleet Web Bridge* 安装；或打开 `chrome://extensions` → 打开「开发者模式」→「加载已解压的扩展程序」选择随包的 `browser-extension/` 目录（网页版 AI 会话必须）。
 
 ---
 ## 🔒 本地优先与隐私说明

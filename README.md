@@ -100,7 +100,7 @@ All tiers share one **identical Windows binary**. Save as many AI configurations
 | **Team** | **6 Seats** | **$39.99** | **12 months** | Advanced multi‑agent pipelines |
 | **Ultra** | **12 Seats** | **$79.99** | **12 months** | High‑density multi‑model clusters |
 
-*Paid tiers will become available upon official release via Lemon Squeezy (purchase button activates at launch).*
+*Paid tiers are sold through Lemon Squeezy: [pocketfleet.lemonsqueezy.com](https://pocketfleet.lemonsqueezy.com) — one payment, 12 months of use, no auto-renewal.*
 
 Early preview participants can claim a **30-day Solo 4-seat key** by contacting the author or joining our early-access community. Simply paste your key into the desktop control center—no credit card required. When expired, your configuration persists and gracefully falls back to the permanent Free 2-seat limit. *(Experience codes are not pre-bundled inside installation packages).*
 
@@ -122,7 +122,8 @@ Click the link above on your phone, or scan this QR code:
 
 - **OS**: Windows 10 / 11 x64 desktop machine (must remain powered‑on while running agent workflows with AI browser sessions available).
 - **Network**: Direct network access to Telegram and your chosen AI provider services.
-- **Installer Status**: Final VM acceptance testing is ongoing. No public release build yet. Binaries will be published to [GitHub Releases](https://github.com/PocketFleet-AI/my-ai-group-chat/releases).
+- **Installer Status**: **v3.0.0 is published (early preview).** Download the installer (per-user, no UAC prompt) or the portable zip from [GitHub Releases](https://github.com/PocketFleet-AI/my-ai-group-chat/releases). The installer opens the user guide and the bundled `browser-extension/` folder automatically when it finishes, so you can install the Web Bridge extension right away.
+- **Browser extension**: install *PocketFleet Web Bridge* from the Chrome Web Store, or load the bundled `browser-extension/` folder via `chrome://extensions` → Developer mode → Load unpacked (required for ChatGPT / Claude / Gemini / DeepSeek web sessions).
 
 ---
 

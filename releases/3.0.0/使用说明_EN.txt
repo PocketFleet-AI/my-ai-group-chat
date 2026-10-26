@@ -1,0 +1,88 @@
+=========================================================
+Priority after extraction: Install browser extension (Required for web AI)
+Prerequisite: To connect web AIs such as ChatGPT, Claude, Gemini, DeepSeek, you need the PocketFleet Web Bridge browser extension.
+Users who only use local IDE / CLI code AI can skip this step.
+=========================================================
+PocketFleet User Guide (Windows standalone build, compatible with Win10 / Win11)
+==================================================
+
+This tool lets you assemble your existing AIs into a collaborative group. Keep using your own AI accounts, start an AI meeting inside a Telegram group. AIs will split tasks automatically, execute work, cross-review outputs and deliver results to you.
+
+--------------------------------------------------
+Step 1: What if PocketFleet.exe fails to launch?
+--------------------------------------------------
+Windows 10 requires the WebView2 runtime component (free from Microsoft).
+Download link: https://developer.microsoft.com/en-us/microsoft-edge/webview2/
+Select the Evergreen Bootstrapper installer. Restart PocketFleet after installation.
+✅ WebView2 is preinstalled on Windows 11, you may skip this step.
+
+--------------------------------------------------
+Step 2: Create a Telegram Bot (Required)
+--------------------------------------------------
+1. Open Telegram and search for @BotFather.
+2. Send /newbot, follow prompts to set bot name and username (username must end with "bot", e.g., my_assistant_bot).
+3. Copy the generated bot token (format: 123456789:AAxxxxxx).
+4. Paste the token into PocketFleet. You are ready when it displays a green "Verified" badge and preview of the bot name.
+5. You need at least two bots. Proceed only when all status indicators turn green.
+
+--------------------------------------------------
+Step 3: Install Browser Extension (Required for web AI)
+--------------------------------------------------
+To connect web AIs including ChatGPT, Claude, Gemini, DeepSeek, install the PocketFleet Web Bridge extension.
+
+Method A [Recommended: Chrome Web Store]
+1. Click "🏪 Store Page" inside the PocketFleet desktop app.
+2. Click "Add to Chrome" on the Chrome Web Store page.
+3. Return to PocketFleet and click "🔑 Copy Pairing Code".
+4. Open the PocketFleet extension popup from your browser toolbar.
+5. Paste the pairing code under Connection Settings, then click Save.
+6. You are connected when the extension shows "Connected / Connection normal".
+Store versions receive automatic updates managed by Chrome, best for most users.
+
+Method B [Fallback: Load unpacked extension]
+If you cannot access the Chrome Web Store, or you need the exact extension version matched to this desktop build:
+1. Click "📂 Open Extension Folder" inside PocketFleet.
+2. Open Chrome and navigate to chrome://extensions.
+3. Toggle "Developer mode" on in the top-right corner.
+4. Click "Load unpacked".
+5. Select the browser-extension folder inside your extracted directory.
+Local bundled extensions support auto-pairing; a pairing code is usually not required manually.
+Note: Locally loaded extensions will NOT update automatically via the Chrome Web Store.
+
+Security Note: Your pairing code is a local communication credential. Do not share it publicly.
+Users who only use local IDE / CLI code AI can skip this browser extension setup.
+
+--------------------------------------------------
+Step 4: Connect to your Telegram Group (Required)
+--------------------------------------------------
+1. Create a new Telegram group, add the bots you created, and promote them to administrators.
+2. Send /PocketFleet inside the group chat.
+3. Start your AI meeting once all four check items pass with green checkmarks.
+
+--------------------------------------------------
+Step 5: Connect Web-based AI or Code Tool AI (At least one type required)
+--------------------------------------------------
+You must connect at least one type of AI to launch meetings:
+- Web-based AI: Connected via the browser extension above (e.g., ChatGPT, Claude, Gemini, Grok, DeepSeek).
+- Code tool AI: CodeX, Claude Code, Cursor, GitHub Copilot, Antigravity, WorkBuddy, DeepSeek Harness, etc.
+  - IDE mode: Install the official IDE. Easy for beginners, but it may steal window focus during AI interactions.
+  - CLI mode: Install the official CLI. Authentication is required inside the CLI with a slightly steeper learning curve. It runs silently in the background without stealing window focus.
+
+⚠️ Note: You are responsible for installing and logging into these IDE / CLI tools yourself.
+PocketFleet will not install them for you, nor access your AI accounts.
+
+--------------------------------------------------
+Troubleshooting Logs
+--------------------------------------------------
+Program log path: %APPDATA%\PocketFleet\debug.log
+Copy this path and paste into the File Explorer address bar to view logs.
+
+Your configuration file: %APPDATA%\PocketFleet\pocketfleet.json
+Settings are stored separately. Your configuration will not be lost if you move the exe file. Back it up before reinstalling Windows.
+
+--------------------------------------------------
+Advanced Notice (For users manually moving program files only)
+--------------------------------------------------
+Do not move PocketFleet.exe separately.
+The exe must stay in the same folder as the browser-extension directory.
+Moving the exe alone will break extension pairing and trigger the "pairing files unavailable" error.
