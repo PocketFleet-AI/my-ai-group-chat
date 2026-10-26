@@ -28,8 +28,8 @@ Orchestrate the AIs you already use — ChatGPT, Claude, Gemini, DeepSeek, and y
 **Assets**
 | File | Size | SHA256 |
 |---|---|---|
-| MyAIGroupChat-Setup-3.0.0.exe | 10,012,881 B | `2AEF4E8393325A851A487A1D0F6908182C2A55B7874F03C49F9B96048EB53AB1` |
-| MyAIGroupChat-Portable-3.0.0.zip | 10,540,799 B | `623081B6F257A31C5D52199D0B458F8C6B3CCEC214E5DBCAA4F8F7F34C16D28A` |
+| MyAIGroupChat-Setup-3.0.0.exe | 10,012,879 B | `61444CF311BD9D0E7E71C4262E93A8ABADFE5B8DDBAABBB8A04F148F4CF2311E` |
+| MyAIGroupChat-Portable-3.0.0.zip | 10,540,799 B | `B484670DA13F717EA1514C653B60B8122F099318CEC06E9392945F8C68BC7FC0` |
 
 *Installer = per-user install (no UAC prompt), desktop shortcut optional. **When it finishes, the installer opens the user guide and the bundled `browser-extension/` folder automatically** — install the Web Bridge extension from there (Chrome Web Store or Load unpacked). Portable = unzip and run; keep the folder together.*
 
@@ -59,8 +59,8 @@ Orchestrate the AIs you already use — ChatGPT, Claude, Gemini, DeepSeek, and y
 **资产**
 | 文件 | 大小 | SHA256 |
 |---|---|---|
-| MyAIGroupChat-Setup-3.0.0.exe | 10,012,881 B | `2AEF4E8393325A851A487A1D0F6908182C2A55B7874F03C49F9B96048EB53AB1` |
-| MyAIGroupChat-Portable-3.0.0.zip | 10,540,799 B | `623081B6F257A31C5D52199D0B458F8C6B3CCEC214E5DBCAA4F8F7F34C16D28A` |
+| MyAIGroupChat-Setup-3.0.0.exe | 10,012,879 B | `61444CF311BD9D0E7E71C4262E93A8ABADFE5B8DDBAABBB8A04F148F4CF2311E` |
+| MyAIGroupChat-Portable-3.0.0.zip | 10,540,799 B | `B484670DA13F717EA1514C653B60B8122F099318CEC06E9392945F8C68BC7FC0` |
 
 *安装版＝免 UAC 用户目录安装，桌面快捷方式可选；**安装结束时自动打开使用说明与随包 `browser-extension/` 目录**，可直接就地安装浏览器扩展（Chrome 商店或「加载已解压的扩展程序」）。便携版＝解压即用，保持文件夹完整。*
 
