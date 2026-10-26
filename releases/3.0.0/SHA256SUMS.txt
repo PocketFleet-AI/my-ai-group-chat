@@ -1,2 +1,2 @@
-f8df2810468de5c4d022e25bdcc6f1d3d3547a84b77945e57c13f110c5d07c15 *MyAIGroupChat-Portable-3.0.0.zip
-9aa77354612dcca045886cc6941d1c9ad4cabb9ca8db0d8383d85aba18f077f4 *MyAIGroupChat-Setup-3.0.0.exe
+d21492267346e4125a9093206914f17e1aba665a61ed39cdeb1b07db0f933cda *MyAIGroupChat-Portable-3.0.0.zip
+9d46ed8213742fdb1536acc73385d1e31a415f51e1090c188907b1997dd6150c *MyAIGroupChat-Setup-3.0.0.exe

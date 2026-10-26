@@ -28,8 +28,8 @@ Orchestrate the AIs you already use — ChatGPT, Claude, Gemini, DeepSeek, and y
 **Assets**
 | File | Size | SHA256 |
 |---|---|---|
-| MyAIGroupChat-Setup-3.0.0.exe | 10,008,282 B | `9AA77354612DCCA045886CC6941D1C9AD4CABB9CA8DB0D8383D85ABA18F077F4` |
-| MyAIGroupChat-Portable-3.0.0.zip | 10,538,915 B | `F8DF2810468DE5C4D022E25BDCC6F1D3D3547A84B77945E57C13F110C5D07C15` |
+| MyAIGroupChat-Setup-3.0.0.exe | 10,008,718 B | `9D46ED8213742FDB1536ACC73385D1E31A415F51E1090C188907B1997DD6150C` |
+| MyAIGroupChat-Portable-3.0.0.zip | 10,539,356 B | `D21492267346E4125A9093206914F17E1ABA665A61ED39CDEB1B07DB0F933CDA` |
 
 *Installer = per-user install (no UAC prompt), desktop shortcut optional. Portable = unzip and run; keep the folder together.*
 
@@ -59,8 +59,8 @@ Orchestrate the AIs you already use — ChatGPT, Claude, Gemini, DeepSeek, and y
 **资产**
 | 文件 | 大小 | SHA256 |
 |---|---|---|
-| MyAIGroupChat-Setup-3.0.0.exe | 10,008,282 B | `9AA77354612DCCA045886CC6941D1C9AD4CABB9CA8DB0D8383D85ABA18F077F4` |
-| MyAIGroupChat-Portable-3.0.0.zip | 10,538,915 B | `F8DF2810468DE5C4D022E25BDCC6F1D3D3547A84B77945E57C13F110C5D07C15` |
+| MyAIGroupChat-Setup-3.0.0.exe | 10,008,718 B | `9D46ED8213742FDB1536ACC73385D1E31A415F51E1090C188907B1997DD6150C` |
+| MyAIGroupChat-Portable-3.0.0.zip | 10,539,356 B | `D21492267346E4125A9093206914F17E1ABA665A61ED39CDEB1B07DB0F933CDA` |
 
 *安装版＝免 UAC 用户目录安装，桌面快捷方式可选；便携版＝解压即用，保持文件夹完整。*
 
